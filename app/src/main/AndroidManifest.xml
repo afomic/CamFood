@@ -3,12 +3,12 @@
     package="afomic.com.camfood">
 
     <application
+        android:name=".CamFood"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".CamFood"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.splash.SplashScreen" />
-        <activity android:name=".ui.welcome.WelcomeActivity"></activity>
+        <activity android:name=".ui.welcome.WelcomeActivity" />
+        <activity android:name=".ui.customerHome.CustomerHomeActivity"></activity>
     </application>
 
 </manifest>
