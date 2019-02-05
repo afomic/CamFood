@@ -5,4 +5,6 @@
     <dimen name="logo_height">100</dimen>
     <dimen name="button_margin">8dp</dimen>
     <dimen name="button_width">300dp</dimen>
+    <dimen name="card_container_margin">16dp</dimen>
+    <dimen name="container_padding">8dp</dimen>
 </resources>

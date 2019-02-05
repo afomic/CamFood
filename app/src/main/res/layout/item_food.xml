@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_margin="@dimen/card_container_margin"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:padding="@dimen/container_padding"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="32dp"
+                android:layout_margin="8dp"
+                android:id="@+id/imv_restaurant_logo"
+                android:src="@color/colorPrimary"
+                android:layout_height="32dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:text="Fiverr"
+                    android:id="@+id/tv_restaurant_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:text="No 3 new Buka"
+                    android:id="@+id/tv_restaurant_address"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/imv_food"
+            android:src="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="0dp"
+                android:text="Amala Dudu"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:id="@+id/tv_food_name"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <TextView
+                android:text="5000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:textSize="18sp"
+                android:id="@+id/tv_food_price"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:text="30min"
+                android:id="@+id/tv_food_preparation_time"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:layout_weight="1"
+                android:layout_height="match_parent" />
+            <TextView
+                android:layout_marginRight="@dimen/text_margin"
+                android:layout_marginLeft="@dimen/text_margin"
+                android:layout_width="wrap_content"
+                android:text="3.8"
+                android:id="@+id/tv_food_rating"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
