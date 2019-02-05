@@ -1,4 +1,4 @@
-package afomic.com.camfood.Ui.welcome;
+package afomic.com.camfood.ui.welcome;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

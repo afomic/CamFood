@@ -1,4 +1,4 @@
-package afomic.com.camfood.Ui.splash;
+package afomic.com.camfood.ui.splash;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

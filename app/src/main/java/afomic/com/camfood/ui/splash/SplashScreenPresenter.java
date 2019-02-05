@@ -1,6 +1,6 @@
-package afomic.com.camfood.Ui.splash;
+package afomic.com.camfood.ui.splash;
 
-import afomic.com.camfood.Ui.base.BasePresenter;
+import afomic.com.camfood.ui.base.BasePresenter;
 
 public class SplashScreenPresenter extends BasePresenter<SplashScreenView> {
 

@@ -1,4 +1,4 @@
-package afomic.com.camfood.Ui.base;
+package afomic.com.camfood.ui.base;
 
 public class BasePresenter<V extends BaseView> {
     protected V view;
