@@ -2,4 +2,6 @@
     <string name="app_name">CamFood</string>
     <string name="splash_screen_sub_text">Eating food on campus has never been easier...</string>
     <string name="app_title">Cam Food</string>
+    <string name="register_customer_button_text">Register As customer</string>
+    <string name="register_restaurant_button_text">Register As Restaurant</string>
 </resources>

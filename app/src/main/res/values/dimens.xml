@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="text_margin">8dp</dimen>
-    <dimen name="logo_width">64dp</dimen>
-    <dimen name="logo_height">64dp</dimen>
+    <dimen name="logo_width">100dp</dimen>
+    <dimen name="logo_height">100</dimen>
+    <dimen name="button_margin">8dp</dimen>
+    <dimen name="button_width">300dp</dimen>
 </resources>
