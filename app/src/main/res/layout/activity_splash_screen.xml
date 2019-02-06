@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.splash.SplashScreen">
+
     <ImageView
-        android:src="@drawable/background"
-        android:scaleType="centerCrop"
-        android:tint="#c04fc3f7"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        android:tint="#c04fc3f7" />
+
     <LinearLayout
-        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:orientation="vertical">
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@drawable/logo"
             android:layout_width="@dimen/logo_width"
-            android:layout_height="@dimen/logo_height" />
+            android:layout_height="@dimen/logo_height"
+            android:src="@drawable/logo" />
+
         <TextView
-            android:text="@string/app_title"
-            android:textColor="@color/colorWhite"
-            android:layout_margin="@dimen/text_margin"
-            android:textStyle="italic"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-            android:textSize="18sp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/app_title"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:textStyle="italic" />
     </LinearLayout>
 
     <TextView
-        android:text="@string/splash_screen_sub_text"
         android:layout_width="wrap_content"
-        android:textColor="@color/colorWhite"
-        android:layout_margin="@dimen/text_margin"
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/text_margin"
+        android:text="@string/splash_screen_sub_text"
+        android:textColor="@color/colorWhite" />
 
 </RelativeLayout>
