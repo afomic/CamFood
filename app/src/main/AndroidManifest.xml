@@ -11,15 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
+        </activity>
+        <activity android:name=".ui.splash.SplashScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.splash.SplashScreen" />
         <activity android:name=".ui.welcome.WelcomeActivity" />
-        <activity android:name=".ui.customerHome.CustomerHomeActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity"></activity>
     </application>
 
 </manifest>

@@ -6,6 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.welcome.WelcomeActivity">
+    <ImageView
+        android:src="@drawable/background"
+        android:scaleType="centerCrop"
+        android:tint="#c04fc3f7"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:orientation="vertical"
         android:gravity="center"
@@ -13,12 +19,16 @@
         android:layout_centerInParent="true"
         android:layout_height="wrap_content">
         <de.hdodenhof.circleimageview.CircleImageView
-            android:src="@color/colorPrimaryDark"
+            android:src="@drawable/logo"
             android:layout_width="@dimen/logo_width"
             android:layout_height="@dimen/logo_height" />
         <TextView
             android:text="@string/app_title"
+            android:textColor="@color/colorWhite"
             android:layout_margin="@dimen/text_margin"
+            android:textStyle="italic"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+            android:textSize="18sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <Button
@@ -57,6 +67,7 @@
             android:layout_margin="16dp"
             android:layout_height="wrap_content"/>
         <TextView
+            android:textColor="@color/colorWhite"
             android:text="Skip Registration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />/>
