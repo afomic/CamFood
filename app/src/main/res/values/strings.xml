@@ -4,4 +4,5 @@
     <string name="app_title">Cam Food</string>
     <string name="register_customer_button_text">Register As customer</string>
     <string name="register_restaurant_button_text">Register As Restaurant</string>
+    <string name="home_activity_title">Home</string>
 </resources>

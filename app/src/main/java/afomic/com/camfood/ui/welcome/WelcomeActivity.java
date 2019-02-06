@@ -21,6 +21,11 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeView {
         mWelcomePresenter = new WelcomePresenter(this);
     }
 
+    @Override
+    public void setup() {
+
+    }
+
     @OnClick(R.id.btn_customer_register)
     public void registerCustomerClick() {
         mWelcomePresenter.handleCustomerRegistrationClick();

@@ -23,15 +23,22 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenView 
     }
 
     @Override
+    public void setup() {
+
+    }
+
+    @Override
     public void showWelcomeView() {
         Intent intent = new Intent(SplashScreen.this, WelcomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
     public void showHomeView() {
         Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
