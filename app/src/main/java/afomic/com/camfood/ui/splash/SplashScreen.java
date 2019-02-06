@@ -33,4 +33,19 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenView 
         Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
         startActivity(intent);
     }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showProgressView() {
+
+    }
+
+    @Override
+    public void hideProgressView() {
+
+    }
 }
