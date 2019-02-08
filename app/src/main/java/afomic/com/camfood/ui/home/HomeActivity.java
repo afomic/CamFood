@@ -30,6 +30,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         mHomePresenter = new HomePresenter(this);
+        mHomePresenter.loadView();
 
     }
 
@@ -46,6 +47,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                menuItem.setChecked(true);
+                hideNavigationDrawer();
                 return false;
             }
         });

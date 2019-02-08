@@ -79,26 +79,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="4dp">
 
             <TextView
                 android:id="@+id/tv_food_preparation_time"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
                 android:layout_weight="1"
                 android:text="30min"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
 
-            <TextView
-                android:id="@+id/tv_food_rating"
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="@dimen/text_margin"
-                android:layout_marginRight="@dimen/text_margin"
-                android:text="3.8" />
+                android:id="@+id/rating"
+                android:layout_height="24dp"
+                android:rating="3.9" />
+
+
         </LinearLayout>
     </LinearLayout>
 

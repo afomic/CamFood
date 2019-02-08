@@ -10,9 +10,10 @@ public class Food {
     private String pictureUrl;
     private int amount;
     private String restaurantName;
+    private String restaurantAddress;
     private String restaurantPictureUrl;
-    private double rating;
-
+    private float rating;
+    private String foodPreparationTime;
     public List<Topping> getToppings() {
         return mToppings;
     }
@@ -77,11 +78,27 @@ public class Food {
         this.restaurantPictureUrl = restaurantPictureUrl;
     }
 
-    public double getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(double rating) {
+    public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public String getFoodPreparationTime() {
+        return foodPreparationTime;
+    }
+
+    public void setFoodPreparationTime(String foodPreparationTime) {
+        this.foodPreparationTime = foodPreparationTime;
+    }
+
+    public String getRestaurantAddress() {
+        return restaurantAddress;
+    }
+
+    public void setRestaurantAddress(String restaurantAddress) {
+        this.restaurantAddress = restaurantAddress;
     }
 }

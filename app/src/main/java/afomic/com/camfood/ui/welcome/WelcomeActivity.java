@@ -49,7 +49,7 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeView {
 
     @Override
     public void showLoginView() {
-        Intent intent=new Intent(WelcomeActivity.this,LoginActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
