@@ -3,10 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:orientation="vertical"
+
     android:layout_height="match_parent">
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_weight="1"
+        android:fillViewport="true"
         android:layout_height="0dp">
         <LinearLayout
             android:orientation="vertical"
@@ -14,9 +16,11 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/imv_food"
+                android:src="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
             <android.support.v7.widget.RecyclerView
+                android:nestedScrollingEnabled="false"
                 android:id="@+id/rv_food_topping"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
@@ -27,6 +31,7 @@
     <Button
         android:layout_width="match_parent"
         android:text="Create Order"
+        android:id="@+id/btn_create_order"
         android:background="@color/colorPrimaryDark"
         android:textColor="@color/colorWhite"
         android:layout_height="wrap_content" />

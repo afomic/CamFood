@@ -9,5 +9,6 @@ public interface FoodListView extends BaseView {
     void showFood(List<Food> foodList);
     void showEmptyView();
     void hideEmptyView();
+    void showFoodToppingView(Food food);
 
 }

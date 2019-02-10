@@ -60,6 +60,13 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             foodImageView = itemView.findViewById(R.id.imv_food);
             mRatingBar = itemView.findViewById(R.id.rating);
             foodTimeTextView = itemView.findViewById(R.id.tv_food_preparation_time);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Food food=mFoods.get(getAdapterPosition());
+                    mFoodCLickListener.onClick(food);
+                }
+            });
 
         }
 

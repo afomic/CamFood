@@ -1,8 +1,11 @@
 package afomic.com.camfood.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.List;
 
-public class Food {
+public class Food implements Parcelable {
     private List<FoodTopping> mFoodToppings;
     private String name;
     private String id;
@@ -14,6 +17,36 @@ public class Food {
     private String restaurantPictureUrl;
     private float rating;
     private String foodPreparationTime;
+
+    public Food() {
+
+    }
+
+    protected Food(Parcel in) {
+        name = in.readString();
+        id = in.readString();
+        restaurantId = in.readString();
+        pictureUrl = in.readString();
+        amount = in.readInt();
+        restaurantName = in.readString();
+        restaurantAddress = in.readString();
+        restaurantPictureUrl = in.readString();
+        rating = in.readFloat();
+        foodPreparationTime = in.readString();
+    }
+
+    public static final Creator<Food> CREATOR = new Creator<Food>() {
+        @Override
+        public Food createFromParcel(Parcel in) {
+            return new Food(in);
+        }
+
+        @Override
+        public Food[] newArray(int size) {
+            return new Food[size];
+        }
+    };
+
     public List<FoodTopping> getFoodToppings() {
         return mFoodToppings;
     }
@@ -100,5 +133,24 @@ public class Food {
 
     public void setRestaurantAddress(String restaurantAddress) {
         this.restaurantAddress = restaurantAddress;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeString(id);
+        parcel.writeString(restaurantId);
+        parcel.writeString(pictureUrl);
+        parcel.writeInt(amount);
+        parcel.writeString(restaurantName);
+        parcel.writeString(restaurantAddress);
+        parcel.writeString(restaurantPictureUrl);
+        parcel.writeFloat(rating);
+        parcel.writeString(foodPreparationTime);
     }
 }

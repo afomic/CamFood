@@ -1,5 +1,6 @@
 package afomic.com.camfood.ui.foodList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,15 +15,16 @@ import android.widget.LinearLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodListAdapter;
 import afomic.com.camfood.model.Food;
+import afomic.com.camfood.ui.foodTopping.FoodToppingActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class FoodListFragment extends Fragment implements FoodListView {
-    private static final String BUNDLE_USER_TYPE = "user_type";
 
     @BindView(R.id.rv_food)
     RecyclerView foodRecyclerView;
@@ -62,7 +64,7 @@ public class FoodListFragment extends Fragment implements FoodListView {
         mFoodListAdapter.setFoodCLickListener(new FoodListAdapter.FoodCLickListener() {
             @Override
             public void onClick(Food food) {
-
+                showFoodToppingView(food);
             }
         });
         foodRecyclerView.setAdapter(mFoodListAdapter);
@@ -74,6 +76,13 @@ public class FoodListFragment extends Fragment implements FoodListView {
         mFoodList.clear();
         mFoodList.addAll(foodList);
         mFoodListAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showFoodToppingView(Food food) {
+        Intent intent=new Intent(getContext(),FoodToppingActivity.class);
+        intent.putExtra(Constants.EXTRA_FOOD,food);
+        startActivity(intent);
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,10 +43,10 @@ public class FoodToppingListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
         Object object = mToppingList.get(i);
         if (getItemViewType(i) == TITLE_VIEW_TYPE) {
-            FoodToppingTitleViewHolder holder=(FoodToppingTitleViewHolder) viewHolder;
+            FoodToppingTitleViewHolder holder = (FoodToppingTitleViewHolder) viewHolder;
             holder.bind((FoodToppingTitle) object);
-        }else {
-            FoodToppingViewHolder holder=(FoodToppingViewHolder) viewHolder;
+        } else {
+            FoodToppingViewHolder holder = (FoodToppingViewHolder) viewHolder;
             holder.bind((FoodTopping) object);
         }
 
@@ -96,26 +97,38 @@ public class FoodToppingListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             foodToppingImageView = itemView.findViewById(R.id.imv_topping);
             foodToppingNameTextView = itemView.findViewById(R.id.tv_topping_name);
             foodToppingPriceTextView = itemView.findViewById(R.id.tv_topping_price);
+            foodToppingCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    FoodTopping topping = (FoodTopping) mToppingList.get(getAdapterPosition());
+                    topping.selected = b;
+                    if (b) {
+                        mFoodToppingSelectedListener.onSelect(topping);
+                        itemView.setBackgroundColor(itemView.getContext().getResources().getColor(R.color.lightGray));
+                    } else {
+                        mFoodToppingSelectedListener.onRemove(topping);
+                        itemView.setBackgroundColor(Color.TRANSPARENT);
+                    }
+                }
+            });
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     FoodTopping topping = (FoodTopping) mToppingList.get(getAdapterPosition());
                     if (topping.selected) {
-                        topping.selected = false;
-                        mFoodToppingSelectedListener.onRemove(topping);
-                        itemView.setBackgroundColor(Color.GRAY);
+                        foodToppingCheckBox.setChecked(false);
                     } else {
-                        topping.selected = true;
-                        mFoodToppingSelectedListener.onSelect(topping);
-                        itemView.setBackgroundColor(Color.TRANSPARENT);
+                        foodToppingCheckBox.setChecked(true);
+
                     }
                 }
             });
         }
 
         public void bind(FoodTopping foodTopping) {
-
-
+            foodToppingNameTextView.setText(foodTopping.getName());
+            String price = foodTopping.getPrice() == 0 ? "Free" : "₦" + foodTopping.getPrice();
+            foodToppingPriceTextView.setText(price);
         }
     }
 
