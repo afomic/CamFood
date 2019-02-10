@@ -7,4 +7,12 @@
     <string name="home_activity_title">Home</string>
     <string name="empty_view_message">No food item</string>
     <string name="naira">₦</string>
+    <string-array name="pick_up_locations">
+        <item>Please select a pick up Location</item>
+        <item>Awolowo Hall Common Room</item>
+        <item>Angola Hall Common Room</item>
+        <item>Mozambique Hall Common Room</item>
+        <item>Akintola Hall Common Room</item>
+       <item>Motion Ground</item>
+    </string-array>
 </resources>
