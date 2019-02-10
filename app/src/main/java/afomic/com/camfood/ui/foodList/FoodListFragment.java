@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import afomic.com.camfood.R;
@@ -29,6 +30,8 @@ public class FoodListFragment extends Fragment implements FoodListView {
     LinearLayout emptyLayout;
 
     private FoodListPresenter mFoodListPresenter;
+    private FoodListAdapter mFoodListAdapter;
+    private List<Food> mFoodList;
 
 
     @Override
@@ -54,12 +57,23 @@ public class FoodListFragment extends Fragment implements FoodListView {
     @Override
     public void setup() {
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        mFoodList = new ArrayList<>();
+        mFoodListAdapter = new FoodListAdapter(mFoodList);
+        mFoodListAdapter.setFoodCLickListener(new FoodListAdapter.FoodCLickListener() {
+            @Override
+            public void onClick(Food food) {
+
+            }
+        });
+        foodRecyclerView.setAdapter(mFoodListAdapter);
+
     }
 
     @Override
     public void showFood(List<Food> foodList) {
-        FoodListAdapter adapter = new FoodListAdapter(foodList);
-        foodRecyclerView.setAdapter(adapter);
+        mFoodList.clear();
+        mFoodList.addAll(foodList);
+        mFoodListAdapter.notifyDataSetChanged();
     }
 
     @Override
