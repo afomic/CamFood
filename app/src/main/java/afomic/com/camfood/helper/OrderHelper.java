@@ -29,12 +29,16 @@ public class OrderHelper {
         return orderItems;
     }
 
-    public static String getTotalAmount(List<OrderItem> orderItems) {
+    public static String getTotalAmountString(List<OrderItem> orderItems) {
+        int totalAmount = getTotalAmount(orderItems);
+        NumberFormat numberFormat = NumberFormat.getNumberInstance();
+        return "₦" + numberFormat.format(totalAmount);
+    }
+    public static int getTotalAmount(List<OrderItem> orderItems){
         int totalAmount = 0;
         for (OrderItem orderItem : orderItems) {
             totalAmount += orderItem.getAmount() * orderItem.getQuantity();
         }
-        NumberFormat numberFormat = NumberFormat.getCurrencyInstance();
-        return "₦" + numberFormat.format(totalAmount);
+        return totalAmount;
     }
 }

@@ -3,15 +3,28 @@ package afomic.com.camfood.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class FoodTopping implements Parcelable {
+    @Expose
+    @SerializedName("id")
     private String id;
+    @Expose
+    @SerializedName("name")
     private String name;
+    @Expose
+    @SerializedName("price")
     private int price;
+    @Expose
+    @SerializedName("picture_url")
     private String pictureUrl;
+    @Expose
+    @SerializedName("type")
     private int type;
     public boolean selected;
-    public static final int TYPE_REFRESHMENT = 10;
-    public static final int TYPE_TOPPING = 11;
+    public static final int TYPE_REFRESHMENT = 1;
+    public static final int TYPE_TOPPING = 0;
 
 
     public FoodTopping() {

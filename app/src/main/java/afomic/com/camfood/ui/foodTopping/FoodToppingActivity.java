@@ -1,5 +1,6 @@
 package afomic.com.camfood.ui.foodTopping;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,9 +14,13 @@ import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodToppingListAdapter;
+import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
+import afomic.com.camfood.model.Order;
+import afomic.com.camfood.ui.orderCheckout.OrderCheckoutActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -36,7 +41,9 @@ public class FoodToppingActivity extends AppCompatActivity implements FoodToppin
         setContentView(R.layout.activity_food_topping);
         ButterKnife.bind(this);
         Food food = getIntent().getParcelableExtra(Constants.EXTRA_FOOD);
-        mFoodToppingPresenter = new FoodToppingPresenter(this, food);
+        mFoodToppingPresenter = new FoodToppingPresenter(this, food,
+                new SharedPreferenceHelper(FoodToppingActivity.this),
+                ToppingHelper.getInstance(FoodToppingActivity.this));
         mFoodToppingPresenter.loadView();
     }
 
@@ -63,8 +70,10 @@ public class FoodToppingActivity extends AppCompatActivity implements FoodToppin
     }
 
     @Override
-    public void showOrderCheckoutView(Food food) {
-
+    public void showOrderCheckoutView(Order order) {
+        Intent intent = new Intent(FoodToppingActivity.this, OrderCheckoutActivity.class);
+        intent.putExtra(Constants.EXTRA_ORDER, order);
+        startActivity(intent);
     }
 
     @Override

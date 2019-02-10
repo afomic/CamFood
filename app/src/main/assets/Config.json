@@ -1,0 +1,60 @@
+{
+  "food_topping": [
+    {
+      "id": "1",
+      "name": "Full Chicken",
+      "price": 500,
+      "picture_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl7hFoVFpXhZ34uUgT2GnI_ZlSgpvhfOyq0ld6szwZEHQhqg53",
+      "type": 0
+    },
+    {
+      "id": "2",
+      "name": "Efo riro",
+      "price": 0,
+      "picture_url": "https://9jafoodie.com/wp-content/uploads/2015/07/oil-less-oil-free-efo-riro-Nigerian-soup.jpg",
+      "type": 0
+    },
+    {
+      "id": "3",
+      "name": "Salad",
+      "price": 150,
+      "picture_url": "https://cdn-image.myrecipes.com/sites/default/files/styles/medium_2x/public/image/recipes/ck/indian-salad-ck-1065565-x.jpg",
+      "type": 0
+    },
+    {
+      "id": "4",
+      "name": "Meat",
+      "price": 100,
+      "picture_url": "https://i0.wp.com/www.nigerianlazychef.com/wp-content/uploads/2015/05/IMG_2721-2.jpg",
+      "type": 0
+    },
+    {
+      "id": "5",
+      "name": "Table Water",
+      "price": 100,
+      "picture_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTY11aHCVubVVNCsyMWy70dfzBaTRYkDIg0de4jx_3JtjM6cwm",
+      "type": 1
+    },
+    {
+      "id": "6",
+      "name": "Cocacola",
+      "price": 100,
+      "picture_url": "https://target.scene7.com/is/image/Target/GUEST_9de8872b-bd33-4793-b6eb-f58de3d3e90a?wid=200&hei=200&fmt=pjpeg",
+      "type": 1
+    },
+    {
+      "id": "7",
+      "name": "Pepsi",
+      "price": 100,
+      "picture_url": "https://www.clickomart.com/964-large_default/pepsi-bottle-05-l.jpg",
+      "type": 1
+    },
+    {
+      "id": "8",
+      "name": "Brandy",
+      "price": 100,
+      "picture_url": "https://www.fiorewinery.com/wp-content/uploads/2016/10/FIORE_0019_Fiore-30.png",
+      "type": 1
+    }
+  ]
+}

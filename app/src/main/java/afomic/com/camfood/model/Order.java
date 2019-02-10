@@ -22,16 +22,37 @@ public class Order implements Parcelable {
 
     }
 
+
     protected Order(Parcel in) {
         amount = in.readInt();
         userId = in.readString();
         location = in.readString();
         userName = in.readString();
         userPhoneNumber = in.readString();
+        mOrderItems = in.createTypedArrayList(OrderItem.CREATOR);
         restaurantId = in.readString();
         status = in.readInt();
         name = in.readString();
         foodId = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(amount);
+        dest.writeString(userId);
+        dest.writeString(location);
+        dest.writeString(userName);
+        dest.writeString(userPhoneNumber);
+        dest.writeTypedList(mOrderItems);
+        dest.writeString(restaurantId);
+        dest.writeInt(status);
+        dest.writeString(name);
+        dest.writeString(foodId);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Order> CREATOR = new Creator<Order>() {
@@ -108,23 +129,5 @@ public class Order implements Parcelable {
 
     public void setStatus(int status) {
         this.status = status;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(amount);
-        parcel.writeString(userId);
-        parcel.writeString(location);
-        parcel.writeString(userName);
-        parcel.writeString(userPhoneNumber);
-        parcel.writeString(restaurantId);
-        parcel.writeInt(status);
-        parcel.writeString(name);
-        parcel.writeString(foodId);
     }
 }

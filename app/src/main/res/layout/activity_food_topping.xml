@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical">
 
-    android:layout_height="match_parent">
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="1"
-        android:fillViewport="true"
-        android:layout_height="0dp">
+        android:fillViewport="true">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <ImageView
                 android:id="@+id/imv_food"
-                android:src="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
-                android:layout_height="250dp" />
+                android:layout_height="250dp"
+                android:src="@color/colorPrimaryDark" />
+
             <android.support.v7.widget.RecyclerView
-                android:nestedScrollingEnabled="false"
                 android:id="@+id/rv_food_topping"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false" />
 
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
+
     <Button
-        android:layout_width="match_parent"
-        android:text="Create Order"
         android:id="@+id/btn_create_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        android:textColor="@color/colorWhite"
-        android:layout_height="wrap_content" />
+        android:text="Create Order"
+        android:textColor="@color/colorWhite" />
 
 </LinearLayout>

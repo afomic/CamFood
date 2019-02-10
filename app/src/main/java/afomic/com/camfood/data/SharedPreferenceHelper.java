@@ -8,7 +8,9 @@ public class SharedPreferenceHelper {
     private SharedPreferences mSharedPreferences;
 
     private static final String PREFERENCE_FILE_NAME = "afomic.com.camfood";
-    public static final String PREF_USER = "user";
+    public static final String PREF_USER_NAME = "username";
+    public static final String PREF_USER_ID = "user_id";
+    public static final String PREF_USER_PHONE_NUMBER = "phone_number";
     public static final String PREF_ACCOUNT_TYPE = "account_type";
     public static final String PREF_USER_EXIST = "user_exist";
 

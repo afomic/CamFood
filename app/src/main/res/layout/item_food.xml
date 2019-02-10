@@ -97,6 +97,8 @@
                 style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
                 android:layout_width="wrap_content"
                 android:id="@+id/rating"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                app:mrb_progressTint="@color/goldYellow"
                 android:layout_height="24dp"
                 android:rating="3.9" />
 

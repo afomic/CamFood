@@ -15,7 +15,7 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
 
     @Override
     public void loadView() {
-        view.showTotalAmount(OrderHelper.getTotalAmount(mOrder.getOrderItems()));
+        view.showTotalAmount(OrderHelper.getTotalAmountString(mOrder.getOrderItems()));
         view.showOrderItem(mOrder.getOrderItems());
     }
 
