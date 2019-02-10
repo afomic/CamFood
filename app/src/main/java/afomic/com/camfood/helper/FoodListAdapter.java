@@ -2,6 +2,7 @@ package afomic.com.camfood.helper;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -16,12 +17,10 @@ import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
 public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodViewHolder> {
     private List<Food> mFoods;
-    private View mView;
     private FoodCLickListener mFoodCLickListener;
 
-    public FoodListAdapter(View view, List<Food> foods) {
+    public FoodListAdapter(List<Food> foods) {
         mFoods = foods;
-        mView = view;
     }
 
     public void setFoodCLickListener(FoodCLickListener foodCLickListener) {
@@ -31,7 +30,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
     @NonNull
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        return new FoodViewHolder(mView);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_food, viewGroup, false);
+        return new FoodViewHolder(v);
     }
 
     @Override

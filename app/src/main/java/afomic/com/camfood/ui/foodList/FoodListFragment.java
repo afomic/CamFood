@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.util.List;
 
@@ -21,27 +22,18 @@ import butterknife.ButterKnife;
 
 public class FoodListFragment extends Fragment implements FoodListView {
     private static final String BUNDLE_USER_TYPE = "user_type";
-    private int userType;
 
     @BindView(R.id.rv_food)
     RecyclerView foodRecyclerView;
+    @BindView(R.id.empty_layout)
+    LinearLayout emptyLayout;
 
     private FoodListPresenter mFoodListPresenter;
-    private View foodListView;
-    private FoodListAdapter mFoodListAdapter;
 
-    public static FoodListFragment newInstance(int userType) {
-        Bundle args = new Bundle();
-        args.putInt(BUNDLE_USER_TYPE, userType);
-        FoodListFragment fragment = new FoodListFragment();
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        userType = getArguments().getInt(BUNDLE_USER_TYPE);
 
     }
 
@@ -55,29 +47,29 @@ public class FoodListFragment extends Fragment implements FoodListView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        mFoodListPresenter = new FoodListPresenter(this, new SharedPreferenceHelper(getContext()), userType);
+        mFoodListPresenter = new FoodListPresenter(this, new SharedPreferenceHelper(getContext()));
         mFoodListPresenter.loadView();
     }
 
     @Override
     public void setup() {
         foodRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        foodListView=getLayoutInflater().inflate(R.layout.item_food,null,false);
     }
 
     @Override
     public void showFood(List<Food> foodList) {
-
+        FoodListAdapter adapter = new FoodListAdapter(foodList);
+        foodRecyclerView.setAdapter(adapter);
     }
 
     @Override
     public void showEmptyView() {
-
+        emptyLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideEmptyView() {
-
+        emptyLayout.setVisibility(View.GONE);
     }
 
 
