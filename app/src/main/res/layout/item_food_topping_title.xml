@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+    android:text="Title"
+    android:padding="@dimen/container_padding"
+    android:id="@+id/tv_food_topping_title"
+    android:layout_marginTop="@dimen/container_padding"
+    android:layout_marginBottom="@dimen/container_padding"
+    android:layout_height="wrap_content"/>
+

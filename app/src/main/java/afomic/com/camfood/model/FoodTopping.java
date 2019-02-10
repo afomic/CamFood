@@ -1,11 +1,12 @@
 package afomic.com.camfood.model;
 
-public class Topping {
+public class FoodTopping {
     private String id;
     private String name;
     private int price;
     private String pictureUrl;
     private int type;
+    public boolean selected;
 
     public String getId() {
         return id;

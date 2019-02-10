@@ -8,7 +8,7 @@ public class Order {
     private String location;
     private String userName;
     private String userPhoneNumber;
-    private List<Topping> mToppings;
+    private List<FoodTopping> mFoodToppings;
     private String restaurantId;
     private int status;
 
@@ -52,12 +52,12 @@ public class Order {
         this.userPhoneNumber = userPhoneNumber;
     }
 
-    public List<Topping> getToppings() {
-        return mToppings;
+    public List<FoodTopping> getFoodToppings() {
+        return mFoodToppings;
     }
 
-    public void setToppings(List<Topping> toppings) {
-        mToppings = toppings;
+    public void setFoodToppings(List<FoodTopping> foodToppings) {
+        mFoodToppings = foodToppings;
     }
 
     public String getRestaurantId() {

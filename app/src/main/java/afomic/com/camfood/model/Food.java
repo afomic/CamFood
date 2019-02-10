@@ -3,7 +3,7 @@ package afomic.com.camfood.model;
 import java.util.List;
 
 public class Food {
-    private List<Topping> mToppings;
+    private List<FoodTopping> mFoodToppings;
     private String name;
     private String id;
     private String restaurantId;
@@ -14,12 +14,12 @@ public class Food {
     private String restaurantPictureUrl;
     private float rating;
     private String foodPreparationTime;
-    public List<Topping> getToppings() {
-        return mToppings;
+    public List<FoodTopping> getFoodToppings() {
+        return mFoodToppings;
     }
 
-    public void setToppings(List<Topping> toppings) {
-        mToppings = toppings;
+    public void setFoodToppings(List<FoodTopping> foodToppings) {
+        mFoodToppings = foodToppings;
     }
 
     public String getName() {
