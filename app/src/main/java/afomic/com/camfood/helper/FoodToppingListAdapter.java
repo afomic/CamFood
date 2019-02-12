@@ -129,6 +129,9 @@ public class FoodToppingListAdapter extends RecyclerView.Adapter<RecyclerView.Vi
             foodToppingNameTextView.setText(foodTopping.getName());
             String price = foodTopping.getPrice() == 0 ? "Free" : "₦" + foodTopping.getPrice();
             foodToppingPriceTextView.setText(price);
+            GlideApp.with(itemView.getContext())
+                    .load(foodTopping.getPictureUrl())
+                    .into(foodToppingImageView);
         }
     }
 

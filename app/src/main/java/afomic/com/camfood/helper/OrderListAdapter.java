@@ -70,6 +70,9 @@ public class OrderListAdapter extends RecyclerView.Adapter<OrderListAdapter.Orde
             orderPriceTextView.setText(amount);
             String quantity = "X" + orderItem.getQuantity();
             orderQuantityTextView.setText(quantity);
+            GlideApp.with(itemView.getContext())
+                    .load(orderItem.getPictureUrl())
+                    .into(orderImageView);
 
         }
 
