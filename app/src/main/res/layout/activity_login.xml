@@ -46,12 +46,13 @@
             android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:layout_margin="@dimen/big_space_margin"
             android:background="@drawable/edit_text_box"
             android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="@dimen/card_container_margin"
             android:hint="@string/email_edit_text_hint"
-            android:padding="@dimen/container_padding" />
+            android:padding="@dimen/edit_text_padding" />
 
         <EditText
             android:id="@+id/edt_password"
@@ -63,7 +64,7 @@
             android:drawablePadding="@dimen/card_container_margin"
             android:hint="@string/password_edit_text_hint"
             android:inputType="textPassword"
-            android:padding="@dimen/container_padding" />
+            android:padding="@dimen/edit_text_padding" />
 
         <Button
             android:id="@+id/btn_sign_in"
