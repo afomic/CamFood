@@ -7,6 +7,8 @@
     <string name="home_activity_title">Home</string>
     <string name="empty_view_message">No food item</string>
     <string name="naira">₦</string>
+    <string name="password_edit_text_hint">Password</string>
+    <string name="email_edit_text_hint">Email</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>
