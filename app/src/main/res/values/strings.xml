@@ -10,12 +10,24 @@
     <string name="password_edit_text_hint">Password</string>
     <string name="email_edit_text_hint">Email</string>
     <string name="login_description">if you already have an Account</string>
+    <string name="sign_up_button_label">Sign up</string>
+    <string name="address_edit_text_label">Address</string>
+    <string name="phone_number_edit_text_label">Phone number</string>
+    <string name="username_edit_text_label">Username</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>
         <item>Angola Hall Common Room</item>
         <item>Mozambique Hall Common Room</item>
         <item>Akintola Hall Common Room</item>
-       <item>Motion Ground</item>
+        <item>Motion Ground</item>
+    </string-array>
+    <string-array name="restaurant_type">
+        <item>Please select restaurant type</item>
+        <item>Iya Alamala</item>
+        <item>Small  Size Restuarant</item>
+        <item>Fast food joint</item>
+        <item>Five star Restaurant</item>
+        <item>No star restaurant</item>
     </string-array>
 </resources>

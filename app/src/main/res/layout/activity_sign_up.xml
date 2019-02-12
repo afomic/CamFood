@@ -1,9 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.signUp.SignUpActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background"
+        android:tint="#c04fc3f7"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/big_space_margin"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/big_space_margin"
+                android:background="@drawable/edit_text_box"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="@dimen/card_container_margin"
+                android:gravity="center_vertical"
+                android:hint="@string/email_edit_text_hint"
+                android:padding="@dimen/edit_text_padding" />
+
+            <EditText
+                android:id="@+id/edt_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/big_space_margin"
+                android:background="@drawable/edit_text_box"
+                android:drawableLeft="@drawable/ic_name"
+                android:drawablePadding="@dimen/card_container_margin"
+                android:hint="@string/username_edit_text_label"
+                android:inputType="phone"
+                android:padding="@dimen/edit_text_padding" />
+
+            <EditText
+                android:id="@+id/edt_phone_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/big_space_margin"
+                android:background="@drawable/edit_text_box"
+                android:drawableLeft="@drawable/ic_phone"
+                android:drawablePadding="@dimen/card_container_margin"
+                android:hint="@string/phone_number_edit_text_label"
+                android:inputType="phone"
+                android:padding="@dimen/edit_text_padding" />
+
+            <LinearLayout
+                android:id="@+id/restaurant_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/edt_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/big_space_margin"
+                    android:background="@drawable/edit_text_box"
+                    android:drawableLeft="@drawable/ic_address"
+                    android:drawablePadding="@dimen/card_container_margin"
+                    android:hint="@string/address_edit_text_label"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/edit_text_padding" />
+
+                <Spinner
+                    android:id="@+id/spn_restaurant_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/big_space_margin"
+                    android:background="@color/colorWhite"
+                    android:entries="@array/restaurant_type"
+                    android:padding="@dimen/edit_text_padding">
+
+                </Spinner>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/big_space_margin"
+                android:background="@drawable/edit_text_box"
+                android:drawableLeft="@drawable/ic_password"
+                android:drawablePadding="@dimen/card_container_margin"
+                android:hint="@string/password_edit_text_hint"
+                android:inputType="textPassword"
+                android:padding="@dimen/edit_text_padding" />
+
+            <Button
+                android:id="@+id/btn_sign_up"
+                android:layout_width="@dimen/button_width"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/button_margin"
+                android:layout_marginTop="@dimen/big_space_margin"
+                android:layout_marginRight="@dimen/button_margin"
+                android:layout_marginBottom="@dimen/button_margin"
+                android:background="@drawable/welcome_button_background"
+                android:text="@string/sign_up_button_label"
+                android:textColor="@color/colorWhite" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
