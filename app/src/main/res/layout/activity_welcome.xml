@@ -54,6 +54,27 @@
             android:background="@drawable/welcome_button_background"
             android:text="@string/register_restaurant_button_text"
             android:textColor="@color/colorWhite" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_margin="@dimen/container_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/login_description"
+                android:layout_width="wrap_content"
+                android:padding="4dp"
+                android:textColor="@color/colorWhite"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="Login"
+                android:id="@+id/tv_login_span"
+                android:padding="4dp"
+                android:textColor="@color/colorWhite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
