@@ -16,6 +16,7 @@ import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodToppingListAdapter;
+import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
@@ -78,7 +79,10 @@ public class FoodToppingActivity extends AppCompatActivity implements FoodToppin
 
     @Override
     public void showFood(Food food) {
-
+        GlideApp.with(FoodToppingActivity.this)
+                .load(food.getPictureUrl())
+                .placeholder(R.drawable.preview)
+                .into(foodImageView);
     }
 
     @Override

@@ -2,7 +2,7 @@
 <TextView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+    android:fontFamily="@font/crete_round_italic"
     android:text="Title"
     android:padding="@dimen/container_padding"
     android:id="@+id/tv_food_topping_title"

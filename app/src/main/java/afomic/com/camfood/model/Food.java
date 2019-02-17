@@ -22,7 +22,9 @@ public class Food implements Parcelable {
 
     }
 
+
     protected Food(Parcel in) {
+        mFoodToppings = in.createTypedArrayList(FoodTopping.CREATOR);
         name = in.readString();
         id = in.readString();
         restaurantId = in.readString();
@@ -33,6 +35,26 @@ public class Food implements Parcelable {
         restaurantPictureUrl = in.readString();
         rating = in.readFloat();
         foodPreparationTime = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeTypedList(mFoodToppings);
+        dest.writeString(name);
+        dest.writeString(id);
+        dest.writeString(restaurantId);
+        dest.writeString(pictureUrl);
+        dest.writeInt(amount);
+        dest.writeString(restaurantName);
+        dest.writeString(restaurantAddress);
+        dest.writeString(restaurantPictureUrl);
+        dest.writeFloat(rating);
+        dest.writeString(foodPreparationTime);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
     public static final Creator<Food> CREATOR = new Creator<Food>() {
@@ -135,22 +157,6 @@ public class Food implements Parcelable {
         this.restaurantAddress = restaurantAddress;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
 
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(name);
-        parcel.writeString(id);
-        parcel.writeString(restaurantId);
-        parcel.writeString(pictureUrl);
-        parcel.writeInt(amount);
-        parcel.writeString(restaurantName);
-        parcel.writeString(restaurantAddress);
-        parcel.writeString(restaurantPictureUrl);
-        parcel.writeFloat(rating);
-        parcel.writeString(foodPreparationTime);
-    }
+
 }

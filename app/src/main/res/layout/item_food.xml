@@ -33,11 +33,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Fiverr"
+                    android:textSize="16sp"
+                    android:paddingBottom="4dp"
+                    android:fontFamily="@font/montserrat_semibold"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
 
                 <TextView
                     android:id="@+id/tv_restaurant_address"
                     android:layout_width="match_parent"
+                    android:fontFamily="@font/lato_regular"
                     android:layout_height="wrap_content"
                     android:text="No 3 new Buka" />
             </LinearLayout>
@@ -61,8 +65,10 @@
                 android:id="@+id/tv_food_name"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginTop="4dp"
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
+                android:fontFamily="@font/lato_bold"
                 android:layout_weight="1"
                 android:text="Amala Dudu" />
 
@@ -73,7 +79,7 @@
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
                 android:text="5000"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                android:fontFamily="@font/lato_bold"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -91,9 +97,9 @@
                 android:layout_marginLeft="@dimen/text_margin"
                 android:layout_marginRight="@dimen/text_margin"
                 android:layout_weight="1"
+                android:fontFamily="@font/lato_bold"
                 android:text="30min"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
-
+               />
             <me.zhanghai.android.materialratingbar.MaterialRatingBar
                 style="@style/Widget.MaterialRatingBar.RatingBar.Indicator.Small"
                 android:layout_width="wrap_content"

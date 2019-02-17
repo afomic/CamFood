@@ -35,15 +35,15 @@
                     android:padding="8dp"
                     android:id="@+id/tv_order_name"
                     android:text="Amala"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
-
+                    android:fontFamily="@font/lato_bold"
+                   />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:text="#400"
                     android:id="@+id/tv_order_price"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+                    android:fontFamily="@font/lato_bold"/>
             </LinearLayout>
 
             <TextView
@@ -52,7 +52,8 @@
                 android:padding="8dp"
                 android:text="X1"
                 android:id="@+id/tv_order_quantity"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1" />
+                android:fontFamily="@font/lato_regular"
+                />
 
         </LinearLayout>
 
