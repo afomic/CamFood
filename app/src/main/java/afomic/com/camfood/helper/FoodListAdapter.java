@@ -36,7 +36,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder foodViewHolder, int i) {
-
+        foodViewHolder.bind(mFoods.get(i));
     }
 
     @Override
@@ -63,7 +63,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Food food=mFoods.get(getAdapterPosition());
+                    Food food = mFoods.get(getAdapterPosition());
                     mFoodCLickListener.onClick(food);
                 }
             });
@@ -74,7 +74,19 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
             mRatingBar.setRating(food.getRating());
             foodTimeTextView.setText(food.getFoodPreparationTime());
             restaurantAddressTextView.setText(food.getRestaurantAddress());
-            foodPriceTextView.setText(food.getAmount());
+            String amount = itemView.getContext().getString(R.string.naira) + StringUtil.getFormattedSting(food.getAmount());
+            foodPriceTextView.setText(amount);
+            GlideApp.with(itemView)
+                    .load(food.getPictureUrl())
+                    .placeholder(R.drawable.preview)
+                    .into(foodImageView);
+            GlideApp.with(itemView)
+                    .load(food.getRestaurantPictureUrl())
+                    .placeholder(R.drawable.preview)
+                    .into(restaurantLogoImageView);
+            restaurantNameTextView.setText(food.getRestaurantName());
+            foodNameTextView.setText(food.getName());
+
         }
     }
 

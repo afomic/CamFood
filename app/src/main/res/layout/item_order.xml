@@ -13,7 +13,7 @@
 
         <ImageView
             android:id="@+id/imv_order"
-            android:layout_width="64dp"
+            android:layout_width="80dp"
             android:scaleType="centerCrop"
             android:layout_height="match_parent"
             android:src="@color/colorPrimaryDark" />

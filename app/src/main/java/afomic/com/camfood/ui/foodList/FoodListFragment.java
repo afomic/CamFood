@@ -17,6 +17,8 @@ import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.DataSource;
+import afomic.com.camfood.data.DummyFoodDataSource;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodListAdapter;
 import afomic.com.camfood.model.Food;
@@ -52,7 +54,10 @@ public class FoodListFragment extends Fragment implements FoodListView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        mFoodListPresenter = new FoodListPresenter(this, new SharedPreferenceHelper(getContext()));
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(getContext());
+        DataSource<Food> dataSource = new DummyFoodDataSource(getContext());
+
+        mFoodListPresenter = new FoodListPresenter(this, sharedPreferenceHelper, dataSource);
         mFoodListPresenter.loadView();
     }
 
@@ -80,8 +85,8 @@ public class FoodListFragment extends Fragment implements FoodListView {
 
     @Override
     public void showFoodToppingView(Food food) {
-        Intent intent=new Intent(getContext(),FoodToppingActivity.class);
-        intent.putExtra(Constants.EXTRA_FOOD,food);
+        Intent intent = new Intent(getContext(), FoodToppingActivity.class);
+        intent.putExtra(Constants.EXTRA_FOOD, food);
         startActivity(intent);
     }
 

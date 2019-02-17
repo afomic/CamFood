@@ -18,9 +18,11 @@
 
             <ImageView
                 android:id="@+id/imv_food"
+                android:scaleType="centerCrop"
+
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:src="@color/colorPrimaryDark" />
+                android:src="@drawable/amala" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_food_topping"
