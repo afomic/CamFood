@@ -1,5 +1,8 @@
 package afomic.com.camfood.helper;
 
+
+import android.text.format.DateUtils;
+
 import java.text.NumberFormat;
 
 public class StringUtil {
@@ -7,4 +10,5 @@ public class StringUtil {
         NumberFormat numberFormat = NumberFormat.getNumberInstance();
         return numberFormat.format(value);
     }
+
 }

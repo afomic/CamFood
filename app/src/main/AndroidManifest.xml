@@ -24,6 +24,7 @@
         <activity android:name=".ui.signUp.SignUpActivity"></activity>
         <activity android:name=".ui.foodTopping.FoodToppingActivity" />
         <activity android:name=".ui.orderCheckout.OrderCheckoutActivity" />
+        <activity android:name=".ui.orderDetail.OrderDetailActivity" />
     </application>
 
 </manifest>

@@ -18,6 +18,15 @@
     <string name="status_declined">DECLINED</string>
     <string name="status_delivered">DELIVERED</string>
     <string name="status_processing">PROCESSING</string>
+    <string name="button_approve_text">Mark as done</string>
+    <string name="status_created">CREATED</string>
+    <string name="order_created_status_detail">Order Created</string>
+    <string name="order_accepted_status_detail">Order Accepted</string>
+    <string name="order_declined_status_detail">Order Declined by Restaurant</string>
+    <string name="order_delievered_status_detail">Order delivered By Restaurant</string>
+    <string name="order_processed_status_detail">Order is being processed</string>
+    <string name="order_finished_status_detail">Order completed</string>
+    <string name="status_finished">COMPLETED</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

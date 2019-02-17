@@ -15,6 +15,7 @@ import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
+import afomic.com.camfood.model.OrderStatus;
 
 public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdapter.FoodOrderViewHolder> {
     private List<Order> mFoodOrders;
@@ -52,6 +53,11 @@ public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdap
 
         public FoodOrderViewHolder(@NonNull View itemView) {
             super(itemView);
+            foodImageView = itemView.findViewById(R.id.imv_food);
+            foodNameTextView = itemView.findViewById(R.id.tv_food_name);
+            orderStatusTextView = itemView.findViewById(R.id.tv_order_status);
+            orderTimeTextView = itemView.findViewById(R.id.tv_order_time);
+            orderAmountTextView = itemView.findViewById(R.id.tv_order_amount);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -64,13 +70,18 @@ public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdap
         public void bind(Order order) {
             String amount = mContext.getString(R.string.naira) + StringUtil.getFormattedSting(order.getAmount());
             OrderItem foodItem = order.getOrderItems().get(0);
+            OrderStatus status = order.getStatus().get(0);
             orderAmountTextView.setText(amount);
             foodNameTextView.setText(foodItem.getName());
             GlideApp.with(itemView)
                     .load(foodItem.getPictureUrl())
                     .placeholder(R.drawable.preview)
                     .into(foodImageView);
-            switch (order.getStatus()) {
+            switch (status.getType()) {
+                case Constants.ORDER_STATUS_CREATED:
+                    orderStatusTextView.setBackground(mContext.getResources().getDrawable(R.drawable.delivered_status_background));
+                    orderStatusTextView.setText(R.string.status_created);
+                    break;
                 case Constants.ORDER_STATUS_ACCEPTED:
                     orderStatusTextView.setBackground(mContext.getResources().getDrawable(R.drawable.delivered_status_background));
                     orderStatusTextView.setText(R.string.status_accepted);
@@ -86,6 +97,10 @@ public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdap
                 case Constants.ORDER_STATUS_PROCESSING:
                     orderStatusTextView.setBackground(mContext.getResources().getDrawable(R.drawable.processing_status_background));
                     orderStatusTextView.setText(R.string.status_processing);
+                    break;
+                case Constants.ORDER_STATUS_FINISHED:
+                    orderStatusTextView.setBackground(mContext.getResources().getDrawable(R.drawable.delivered_status_background));
+                    orderStatusTextView.setText(R.string.status_finished);
                     break;
             }
         }

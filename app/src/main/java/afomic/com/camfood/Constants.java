@@ -15,13 +15,17 @@ public class Constants {
 
     public static final String EXTRA_ORDER = "order";
 
-    public static final int ORDER_STATUS_ACCEPTED = 0;
+    public static final int ORDER_STATUS_CREATED = 0;
 
-    public static final int ORDER_STATUS_PROCESSING = 1;
+    public static final int ORDER_STATUS_ACCEPTED = 1;
 
-    public static final int ORDER_STATUS_DECLINED = 2;
+    public static final int ORDER_STATUS_PROCESSING = 2;
 
-    public static final int ORDER_STATUS_DELIVERED = 3;
+    public static final int ORDER_STATUS_DECLINED = 3;
+
+    public static final int ORDER_STATUS_DELIVERED = 4;
+
+    public static final int ORDER_STATUS_FINISHED = 5;
 
 }
 

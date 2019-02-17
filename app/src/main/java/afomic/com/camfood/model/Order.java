@@ -3,6 +3,7 @@ package afomic.com.camfood.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Order implements Parcelable {
@@ -13,12 +14,12 @@ public class Order implements Parcelable {
     private String userPhoneNumber;
     private List<OrderItem> mOrderItems;
     private String restaurantId;
-    private int status;
+    private List<OrderStatus> mOrderStatuses = new ArrayList<>();
     private String name;
     private String foodId;
 
 
-    public Order(){
+    public Order() {
 
     }
 
@@ -31,28 +32,8 @@ public class Order implements Parcelable {
         userPhoneNumber = in.readString();
         mOrderItems = in.createTypedArrayList(OrderItem.CREATOR);
         restaurantId = in.readString();
-        status = in.readInt();
         name = in.readString();
         foodId = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(amount);
-        dest.writeString(userId);
-        dest.writeString(location);
-        dest.writeString(userName);
-        dest.writeString(userPhoneNumber);
-        dest.writeTypedList(mOrderItems);
-        dest.writeString(restaurantId);
-        dest.writeInt(status);
-        dest.writeString(name);
-        dest.writeString(foodId);
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
     }
 
     public static final Creator<Order> CREATOR = new Creator<Order>() {
@@ -123,11 +104,29 @@ public class Order implements Parcelable {
         this.restaurantId = restaurantId;
     }
 
-    public int getStatus() {
-        return status;
+    public List<OrderStatus> getStatus() {
+        return mOrderStatuses;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void addStatus(OrderStatus status) {
+        mOrderStatuses.add(0, status);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(amount);
+        parcel.writeString(userId);
+        parcel.writeString(location);
+        parcel.writeString(userName);
+        parcel.writeString(userPhoneNumber);
+        parcel.writeTypedList(mOrderItems);
+        parcel.writeString(restaurantId);
+        parcel.writeString(name);
+        parcel.writeString(foodId);
     }
 }

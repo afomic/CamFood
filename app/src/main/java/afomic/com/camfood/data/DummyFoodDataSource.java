@@ -19,7 +19,6 @@ public class DummyFoodDataSource implements DataSource<Food> {
     public void getData(int pageNumber, DataSourceCallback<Food> callback) {
         List<Food> foodList = new ArrayList<>();
         Food food = new Food();
-
         food.setAmount(500);
         food.setId("jdjdjdjdjdj");
         food.setName("Amala Dudu");
