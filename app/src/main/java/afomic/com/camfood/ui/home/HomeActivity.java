@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import afomic.com.camfood.R;
 import afomic.com.camfood.ui.foodList.FoodListFragment;
+import afomic.com.camfood.ui.foodOrder.FoodOrderFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -51,6 +52,7 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 menuItem.setChecked(true);
                 hideNavigationDrawer();
+                mHomePresenter.handleNavItemSelected(menuItem.getItemId());
                 return false;
             }
         });
@@ -59,12 +61,13 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @Override
     public void showFoodView() {
         FoodListFragment fragment=new FoodListFragment();
-        displayFragment(fragment);
+        getSupportFragmentManager().beginTransaction().add(R.id.main_container, fragment).commit();
     }
 
     @Override
     public void showOrderView() {
-
+        FoodOrderFragment fragment=new FoodOrderFragment();
+        displayFragment(fragment);
     }
 
 

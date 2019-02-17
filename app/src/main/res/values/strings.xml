@@ -14,6 +14,10 @@
     <string name="address_edit_text_label">Address</string>
     <string name="phone_number_edit_text_label">Phone number</string>
     <string name="username_edit_text_label">Username</string>
+    <string name="status_accepted">ACCEPTED</string>
+    <string name="status_declined">DECLINED</string>
+    <string name="status_delivered">DELIVERED</string>
+    <string name="status_processing">PROCESSING</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>
