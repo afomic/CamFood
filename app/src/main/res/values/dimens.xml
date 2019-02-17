@@ -9,4 +9,6 @@
     <dimen name="container_padding">8dp</dimen>
     <dimen name="big_space_margin">16dp</dimen>
     <dimen name="edit_text_padding">12dp</dimen>
+    <dimen name="text_padding">8dp</dimen>
+    <dimen name="big_text_padding">16dp</dimen>
 </resources>

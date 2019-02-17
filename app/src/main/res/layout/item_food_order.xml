@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@color/colorWhite"
+    android:layout_margin="@dimen/container_padding">
+
+    <ImageView
+        android:id="@+id/imv_food"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_margin="@dimen/container_padding"
+        android:scaleType="centerCrop"
+        android:src="@drawable/amala" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/imv_food"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_food_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/text_padding"
+            android:fontFamily="@font/crete_round_italic"
+            android:text="Fried and shrimps"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/text_margin"
+            android:background="@drawable/delivered_status_background"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="@dimen/big_text_padding"
+            android:textSize="12sp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:paddingRight="@dimen/big_text_padding"
+            android:text="Delivered" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imv_food"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_order_amount"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:padding="@dimen/text_padding"
+            android:text="N2330" />
+        <TextView
+            android:text="2 min"
+            android:id="@+id/tv_order_time"
+            android:layout_margin="@dimen/text_margin"
+            android:padding="@dimen/text_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</RelativeLayout>
