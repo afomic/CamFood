@@ -11,4 +11,8 @@
     <dimen name="edit_text_padding">12dp</dimen>
     <dimen name="text_padding">8dp</dimen>
     <dimen name="big_text_padding">16dp</dimen>
+    <dimen name="normal_padding">8dp</dimen>
+    <dimen name="normal_margin">8dp</dimen>
+    <dimen name="topping_food_width">100dp</dimen>
+    <dimen name="edit_text_margin">8dp</dimen>
 </resources>

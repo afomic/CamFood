@@ -6,4 +6,6 @@ public interface HomeView extends BaseView {
     void showFoodView();
 
     void showOrderView();
+
+    void showAddFoodView();
 }

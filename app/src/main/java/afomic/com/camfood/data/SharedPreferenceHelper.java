@@ -11,7 +11,7 @@ public class SharedPreferenceHelper {
     public static final String PREF_USER_NAME = "username";
     public static final String PREF_USER_ID = "user_id";
     public static final String PREF_USER_PHONE_NUMBER = "phone_number";
-    public static final String PREF_ACCOUNT_TYPE = "account_type";
+    public static final String PREF_RESTAURANT_ACCOUNT_TYPE = "account_type";
     public static final String PREF_USER_EXIST = "user_exist";
 
     public SharedPreferenceHelper(Context context) {

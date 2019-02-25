@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="80dp"
+    android:layout_height="120dp"
+    android:layout_margin="@dimen/normal_margin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imv_food_topping"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/efo_riro" />
+
+        <TextView
+            android:id="@+id/tv_food_topping_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imv_food_topping"
+            android:fontFamily="@font/lato_bold"
+            android:lines="1"
+            android:textSize="12sp"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:text="Efo riro" />
+
+        <TextView
+            android:id="@+id/tv_food_topping_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_below="@id/tv_food_topping_name"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/lato_italic"
+            android:padding="4dp"
+            android:text="free" />
+
+        <LinearLayout
+            android:id="@+id/selected_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="@color/background_translucent_black"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_done" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>

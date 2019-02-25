@@ -1,5 +1,6 @@
 package afomic.com.camfood.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,9 +10,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
 import android.view.MenuItem;
 
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.SharedPreferenceHelper;
+import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodList.FoodListFragment;
 import afomic.com.camfood.ui.foodOrder.FoodOrderFragment;
 import butterknife.BindView;
@@ -32,7 +36,8 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
-        mHomePresenter = new HomePresenter(this);
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(HomeActivity.this);
+        mHomePresenter = new HomePresenter(this, sharedPreferenceHelper);
         mHomePresenter.loadView();
 
     }
@@ -60,16 +65,21 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     @Override
     public void showFoodView() {
-        FoodListFragment fragment=new FoodListFragment();
+        FoodListFragment fragment = new FoodListFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.main_container, fragment).commit();
     }
 
     @Override
     public void showOrderView() {
-        FoodOrderFragment fragment=new FoodOrderFragment();
+        FoodOrderFragment fragment = new FoodOrderFragment();
         displayFragment(fragment);
     }
 
+    @Override
+    public void showAddFoodView() {
+        Intent intent = new Intent(HomeActivity.this, CreateFoodActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public void showMessage(String message) {
@@ -85,22 +95,42 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void hideProgressView() {
 
     }
-    private void displayFragment(Fragment fragment){
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if (mHomePresenter.isRestaurantAccount()) {
+            getMenuInflater().inflate(R.menu.restaurant_home_menu, menu);
+        } else {
+            getMenuInflater().inflate(R.menu.customer_home_menu, menu);
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void displayFragment(Fragment fragment) {
         hideNavigationDrawer();
         getSupportFragmentManager().beginTransaction().replace(R.id.main_container, fragment).commit();
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home){
-            showNavigationDrawer();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                showNavigationDrawer();
+                break;
+            case R.id.menu_search:
+                break;
+            case R.id.menu_add_food:
+                showAddFoodView();
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
-    private void showNavigationDrawer(){
+
+    private void showNavigationDrawer() {
         mDrawerLayout.openDrawer(Gravity.START);
     }
-    private void hideNavigationDrawer(){
+
+    private void hideNavigationDrawer() {
         mDrawerLayout.closeDrawers();
     }
 }

@@ -10,13 +10,13 @@ import afomic.com.camfood.ui.base.BasePresenter;
 
 public class FoodListPresenter extends BasePresenter<FoodListView> {
     private SharedPreferenceHelper mSharedPreferenceHelper;
-    private int userType;
+    private boolean restaurantAccount;
     private DataSource<Food> mFoodDataSource;
 
     public FoodListPresenter(FoodListView view, SharedPreferenceHelper sharedPreferenceHelper, DataSource<Food> dataSource) {
         super(view);
         mSharedPreferenceHelper = sharedPreferenceHelper;
-        this.userType = sharedPreferenceHelper.getIntegerPref(SharedPreferenceHelper.PREF_ACCOUNT_TYPE);
+        this.restaurantAccount = sharedPreferenceHelper.getBooleanPref(SharedPreferenceHelper.PREF_RESTAURANT_ACCOUNT_TYPE);
         mFoodDataSource = dataSource;
     }
 

@@ -6,4 +6,5 @@
     <color name="colorWhite">#fff</color>
     <color name="lightGray">#d6d4d4</color>
     <color name="goldYellow">#fdd835</color>
+    <color name="background_translucent_black">#88000000</color>
 </resources>

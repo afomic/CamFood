@@ -27,6 +27,7 @@
     <string name="order_processed_status_detail">Order is being processed</string>
     <string name="order_finished_status_detail">Order completed</string>
     <string name="status_finished">COMPLETED</string>
+    <string name="create_food_title">Create Food</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

@@ -23,7 +23,6 @@ public class Order implements Parcelable {
 
     }
 
-
     protected Order(Parcel in) {
         amount = in.readInt();
         userId = in.readString();
@@ -32,6 +31,7 @@ public class Order implements Parcelable {
         userPhoneNumber = in.readString();
         mOrderItems = in.createTypedArrayList(OrderItem.CREATOR);
         restaurantId = in.readString();
+        mOrderStatuses = in.createTypedArrayList(OrderStatus.CREATOR);
         name = in.readString();
         foodId = in.readString();
     }
@@ -126,6 +126,7 @@ public class Order implements Parcelable {
         parcel.writeString(userPhoneNumber);
         parcel.writeTypedList(mOrderItems);
         parcel.writeString(restaurantId);
+        parcel.writeTypedList(mOrderStatuses);
         parcel.writeString(name);
         parcel.writeString(foodId);
     }
