@@ -15,4 +15,6 @@
     <dimen name="normal_margin">8dp</dimen>
     <dimen name="topping_food_width">100dp</dimen>
     <dimen name="edit_text_margin">8dp</dimen>
+    <dimen name="small_text_padding">4dp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
 </resources>

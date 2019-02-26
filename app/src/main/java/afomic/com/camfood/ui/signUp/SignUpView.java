@@ -8,4 +8,6 @@ public interface SignUpView extends BaseView {
     void showWelcomeView();
 
     void showRestaurantRegistrationField();
+
+    void setTitle(int stringId);
 }

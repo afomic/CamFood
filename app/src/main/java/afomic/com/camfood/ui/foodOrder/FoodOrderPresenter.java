@@ -38,4 +38,8 @@ public class FoodOrderPresenter extends BasePresenter<FoodOrderView> {
         view.showFoodOrderDetailView(order);
 
     }
+
+    public boolean isRestaurantAccount() {
+        return false;
+    }
 }

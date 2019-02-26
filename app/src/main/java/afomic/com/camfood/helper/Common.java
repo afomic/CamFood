@@ -14,7 +14,7 @@ import java.io.StringReader;
 
 public class Common {
     public static String loadJSONFromAsset(Context context, String jsonFileName) {
-        String json = null;
+        String json;
         try {
             InputStream is = context.getAssets().open(jsonFileName);
             int size = is.available();

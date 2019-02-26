@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +22,7 @@ import afomic.com.camfood.data.DummyFoodOrderDataSource;
 import afomic.com.camfood.helper.FoodOrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.ui.orderDetail.OrderDetailActivity;
+import afomic.com.camfood.ui.processOrder.ProcessOrderActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -34,7 +34,7 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
 
     private FoodOrderPresenter mFoodOrderPresenter;
     private FoodOrderListAdapter mFoodOrderListAdapter;
-    private List<Order> mOrderList=new ArrayList<>();
+    private List<Order> mOrderList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -75,7 +75,12 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
 
     @Override
     public void showFoodOrderDetailView(Order order) {
-        Intent intent = new Intent(getContext(), OrderDetailActivity.class);
+        Intent intent;
+        if (mFoodOrderPresenter.isRestaurantAccount()) {
+            intent = new Intent(getContext(), ProcessOrderActivity.class);
+        } else {
+            intent = new Intent(getContext(), OrderDetailActivity.class);
+        }
         intent.putExtra(Constants.EXTRA_ORDER, order);
         startActivity(intent);
     }

@@ -72,7 +72,8 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
         public void bind(Food food) {
             mRatingBar.setRating(food.getRating());
-            foodTimeTextView.setText(food.getFoodPreparationTime());
+            String preparationTime=food.getFoodPreparationTime()+" Away";
+            foodTimeTextView.setText(preparationTime);
             restaurantAddressTextView.setText(food.getRestaurantAddress());
             String amount = itemView.getContext().getString(R.string.naira) + StringUtil.getFormattedSting(food.getAmount());
             foodPriceTextView.setText(amount);

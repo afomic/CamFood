@@ -62,6 +62,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         finish();
     }
 
+
     @Override
     public void showWelcomeView() {
         finish();
