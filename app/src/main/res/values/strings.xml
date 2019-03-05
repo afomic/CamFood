@@ -31,6 +31,9 @@
     <string name="customer_sign_up_title">Customer Registration</string>
     <string name="restaurant_sign_up_title">Restaurant Registration</string>
     <string name="restaurant_name">Restaurant Name</string>
+    <string name="save_text">SAVE</string>
+    <string name="delete_text">DELETE</string>
+    <string name="cancel_text">CANCEL</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

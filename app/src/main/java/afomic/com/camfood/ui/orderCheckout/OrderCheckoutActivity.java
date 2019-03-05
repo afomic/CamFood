@@ -25,6 +25,7 @@ import afomic.com.camfood.helper.OrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
 import afomic.com.camfood.ui.home.HomeActivity;
+import afomic.com.camfood.viewHelper.createFood.UpdateFoodItemDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -108,7 +109,19 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
 
     @Override
     public void showOrderItemQuantityDialog(OrderItem orderItem) {
+        UpdateFoodItemDialog dialog = UpdateFoodItemDialog.getInstance(orderItem);
+        dialog.setUpdateOrderItemListener(new UpdateFoodItemDialog.UpdateOrderItemListener() {
+            @Override
+            public void onDelete(OrderItem orderItem) {
+                mOrderCheckoutPresenter.handleOrderItemDelete(orderItem);
+            }
 
+            @Override
+            public void onUpdate(OrderItem orderItem) {
+                mOrderCheckoutPresenter.handleOrderItemUpdate(orderItem);
+            }
+        });
+        dialog.show(getSupportFragmentManager(), null);
     }
 
     @Override

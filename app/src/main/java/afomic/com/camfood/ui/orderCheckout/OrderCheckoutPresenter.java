@@ -1,5 +1,7 @@
 package afomic.com.camfood.ui.orderCheckout;
 
+import java.util.List;
+
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.DataSource;
@@ -36,7 +38,17 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
     }
 
     public void handleOrderItemClick(OrderItem orderItem) {
-
+        view.showOrderItemQuantityDialog(orderItem);
+    }
+    public void handleOrderItemDelete(OrderItem orderItem){
+        List<OrderItem> orderItems=mOrder.getOrderItems();
+        orderItems.remove(orderItem);
+        view.showOrderItem(orderItems);
+        view.showTotalAmount(OrderHelper.getTotalAmountString(orderItems));
+    }
+    public void handleOrderItemUpdate(OrderItem orderItem){
+        view.showTotalAmount(OrderHelper.getTotalAmountString(mOrder.getOrderItems()));
+        view.showOrderItem(mOrder.getOrderItems());
     }
 
     public void handleLocationSelected(String location) {

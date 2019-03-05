@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="match_parent"
+            android:scaleType="centerCrop"
+            android:id="@+id/imv_food_item"
+            android:src="@drawable/efo_riro"
+            android:layout_height="200dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_margin="16dp"
+            android:hint="Quantity"
+            android:inputType="numberDecimal"
+            android:id="@+id/edt_quantity"
+            android:background="@drawable/edit_text_box"
+            android:padding="@dimen/normal_padding"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:padding="@dimen/normal_padding"
+        android:text="Efo Riro"
+        android:id="@+id/tv_food_name"
+        android:textSize="@dimen/big_text_padding"
+        android:fontFamily="@font/crete_round_italic"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/backgroun_gradient"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
