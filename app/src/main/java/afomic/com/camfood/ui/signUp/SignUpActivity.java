@@ -40,6 +40,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     Toolbar mToolbar;
 
     private SignUpPresenter mSignUpPresenter;
+    int registrationType;
 
 
     @Override
@@ -47,7 +48,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
-        int registrationType = getIntent().getIntExtra(Constants.EXTRA_REGISTRATION_TYPE, 0);
+        registrationType = getIntent().getIntExtra(Constants.EXTRA_REGISTRATION_TYPE, 0);
         SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(this);
         mSignUpPresenter = new SignUpPresenter(this, AuthManager.getInstance(), sharedPreferenceHelper);
         mSignUpPresenter.setRegistrationType(registrationType);
@@ -58,6 +59,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public void setup() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(registrationType==Constants.RESTAURANT_REGISTRATION_TYPE){
+            nameEditText.setHint(R.string.restaurant_name);
+        }
     }
 
     @Override

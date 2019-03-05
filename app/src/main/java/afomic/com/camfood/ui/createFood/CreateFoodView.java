@@ -11,5 +11,7 @@ public interface CreateFoodView extends BaseView {
 
     void selectImageFromPhone();
 
+    void showHome();
+
 
 }

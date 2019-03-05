@@ -30,8 +30,10 @@ public class FoodToppingPresenter extends BasePresenter<FoodToppingView> {
     public void loadView() {
         view.showFood(mFood);
         List<Object> toppings = new ArrayList<>();
-        toppings.add(new FoodToppingTitle("Select Food Topping"));
-        toppings.addAll(mFood.getFoodToppings());
+        if(mFood.getFoodToppings()!=null){
+            toppings.add(new FoodToppingTitle("Select Food Topping"));
+            toppings.addAll(mFood.getFoodToppings());
+        }
         toppings.add(new FoodToppingTitle("Select Refreshment"));
         toppings.addAll(mToppingHelper.refreshments);
         view.showTopping(toppings);

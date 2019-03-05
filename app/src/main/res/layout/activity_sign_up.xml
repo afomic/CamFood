@@ -89,7 +89,6 @@
                     android:drawableLeft="@drawable/ic_address"
                     android:drawablePadding="@dimen/card_container_margin"
                     android:hint="@string/address_edit_text_label"
-                    android:inputType="textPassword"
                     android:padding="@dimen/edit_text_padding" />
 
                 <Spinner

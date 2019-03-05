@@ -1,10 +1,13 @@
 package afomic.com.camfood.ui.createFood;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -13,18 +16,28 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
+import com.iceteck.silicompressorr.SiliCompressor;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.AuthManager;
+import afomic.com.camfood.data.DataSource;
+import afomic.com.camfood.data.FoodDataSource;
 import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.ToppingHelper;
+import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
 import afomic.com.camfood.viewHelper.CreateFoodToppingAdapter;
 import butterknife.BindView;
@@ -44,10 +57,14 @@ public class CreateFoodActivity extends AppCompatActivity implements CreateFoodV
     RecyclerView foodToppingRecyclerView;
     @BindView(R.id.imv_food)
     ImageView foodImageView;
+    @BindView(R.id.progress)
+    RelativeLayout progressLayout;
 
     private CreateFoodPresenter mCreateFoodPresenter;
     private CreateFoodToppingAdapter mAdapter;
     private List<FoodTopping> mFoodToppings = new ArrayList<>();
+    private Uri imageUri;
+    private String compressedPath;
 
     private static final int REQUEST_PERMISSIONS_REQUEST_CODE = 20;
 
@@ -57,7 +74,10 @@ public class CreateFoodActivity extends AppCompatActivity implements CreateFoodV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_food);
         ButterKnife.bind(this);
-        mCreateFoodPresenter = new CreateFoodPresenter(this, ToppingHelper.getInstance(CreateFoodActivity.this));
+        AuthManager authManager = AuthManager.getInstance();
+        DataSource<Food> dataSource = new FoodDataSource(this);
+        mCreateFoodPresenter = new CreateFoodPresenter(this, ToppingHelper.getInstance(CreateFoodActivity.this), authManager);
+        mCreateFoodPresenter.setFoodDataSource(dataSource);
         mCreateFoodPresenter.loadView();
 
     }
@@ -138,22 +158,41 @@ public class CreateFoodActivity extends AppCompatActivity implements CreateFoodV
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(CreateFoodActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showProgressView() {
-
+        progressLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        progressLayout.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.btn_create_food)
     public void createFood() {
+        showProgressView();
+        if (imageUri != null) {
+            if (compressedPath == null) {
+                String compressPath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + "/camfood/images";
+                new ImageCompressionAsyncTask(CreateFoodActivity.this).execute(imageUri.getPath(), compressPath);
+            } else {
+                startFoodUpload(compressedPath);
+            }
 
+        } else {
+            hideProgressView();
+            showMessage("Please select food image");
+        }
+
+
+    }
+
+    @Override
+    public void showHome() {
+        finish();
     }
 
     @OnClick(R.id.imv_food)
@@ -175,15 +214,57 @@ public class CreateFoodActivity extends AppCompatActivity implements CreateFoodV
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
             if (resultCode == RESULT_OK) {
-                Uri resultUri = result.getUri();
+                imageUri = result.getUri();
+                compressedPath = null;
                 GlideApp.with(CreateFoodActivity.this)
-                        .load(resultUri)
+                        .load(imageUri)
                         .into(foodImageView);
-                mCreateFoodPresenter.handleImageViewSelected(resultUri);
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 Exception error = result.getError();
+                error.printStackTrace();
             }
         }
+    }
+
+    public class ImageCompressionAsyncTask extends AsyncTask<String, Void, String> {
+
+        final AtomicReference<Context> mContext = new AtomicReference<Context>();
+
+        public ImageCompressionAsyncTask(Context context) {
+            mContext.set(context);
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+            try {
+                return SiliCompressor.with(mContext.get()).compress(params[0], new File(params[1]), true);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s.isEmpty()) {
+                showMessage("Invalid Image");
+                hideProgressView();
+            } else {
+                compressedPath = s;
+                startFoodUpload(s);
+            }
+
+        }
+
+
+    }
+
+    private void startFoodUpload(String s) {
+        String foodName = foodNameEditText.getText().toString();
+        String foodAmount = foodAmountEditText.getText().toString();
+        String foodCompletionTime = foodCompletionTimeEditText.getText().toString();
+        Uri uri = Uri.fromFile(new File(s));
+        mCreateFoodPresenter.createFood(foodName, foodAmount, foodCompletionTime, uri);
     }
 
 }

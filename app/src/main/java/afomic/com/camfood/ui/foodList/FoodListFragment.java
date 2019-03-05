@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -25,6 +26,7 @@ import afomic.com.camfood.data.FoodDataSource;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodListAdapter;
 import afomic.com.camfood.model.Food;
+import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodTopping.FoodToppingActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -90,6 +92,17 @@ public class FoodListFragment extends Fragment implements FoodListView {
             inflater.inflate(R.menu.customer_home_menu, menu);
         }
         super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_add_food:
+                Intent intent = new Intent(getContext(), CreateFoodActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
