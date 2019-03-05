@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import afomic.com.camfood.R;
@@ -96,15 +95,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        if (mHomePresenter.isRestaurantAccount()) {
-            getMenuInflater().inflate(R.menu.restaurant_home_menu, menu);
-        } else {
-            getMenuInflater().inflate(R.menu.customer_home_menu, menu);
-        }
-        return super.onCreateOptionsMenu(menu);
-    }
 
     private void displayFragment(Fragment fragment) {
         hideNavigationDrawer();
@@ -116,11 +106,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
         switch (item.getItemId()) {
             case android.R.id.home:
                 showNavigationDrawer();
-                break;
-            case R.id.menu_search:
-                break;
-            case R.id.menu_add_food:
-                showAddFoodView();
                 break;
         }
         return super.onOptionsItemSelected(item);

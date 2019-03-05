@@ -2,6 +2,7 @@ package afomic.com.camfood.ui.foodList;
 
 import java.util.List;
 
+import afomic.com.camfood.Constants;
 import afomic.com.camfood.data.DataSource;
 import afomic.com.camfood.data.DataSourceCallback;
 import afomic.com.camfood.data.SharedPreferenceHelper;
@@ -24,23 +25,28 @@ public class FoodListPresenter extends BasePresenter<FoodListView> {
         view.showProgressView();
         mFoodDataSource.getData(mSharedPreferenceHelper.getIntegerPref(SharedPreferenceHelper.PREF_RESTAURANT_ACCOUNT_TYPE),
                 new DataSourceCallback<Food>() {
-            @Override
-            public void onSuccess(List<Food> data) {
-                view.hideEmptyView();
-                if (data.isEmpty()) {
-                    view.showEmptyView();
-                } else {
-                    view.showFood(data);
-                }
-            }
+                    @Override
+                    public void onSuccess(List<Food> data) {
+                        view.hideEmptyView();
+                        if (data.isEmpty()) {
+                            view.showEmptyView();
+                        } else {
+                            view.showFood(data);
+                        }
+                    }
 
-            @Override
-            public void onFailure(String reason) {
-                view.hideEmptyView();
-                view.showMessage(reason);
-            }
-        });
+                    @Override
+                    public void onFailure(String reason) {
+                        view.hideEmptyView();
+                        view.showMessage(reason);
+                    }
+                });
 
+    }
+
+    public boolean isRestaurantAccount() {
+        return mSharedPreferenceHelper.getIntegerPref(SharedPreferenceHelper.PREF_RESTAURANT_ACCOUNT_TYPE)
+                == Constants.RESTAURANT_ACCOUNT_TYPE;
     }
 
 }

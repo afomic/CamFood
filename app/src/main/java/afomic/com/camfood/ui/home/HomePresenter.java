@@ -28,7 +28,4 @@ public class HomePresenter extends BasePresenter<HomeView> {
         }
     }
 
-    public boolean isRestaurantAccount() {
-        return true;
-    }
 }

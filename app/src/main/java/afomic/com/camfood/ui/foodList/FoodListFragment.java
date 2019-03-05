@@ -8,6 +8,8 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -41,6 +43,7 @@ public class FoodListFragment extends Fragment implements FoodListView {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
 
     }
 
@@ -74,6 +77,16 @@ public class FoodListFragment extends Fragment implements FoodListView {
         });
         foodRecyclerView.setAdapter(mFoodListAdapter);
 
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        if (mFoodListPresenter.isRestaurantAccount()) {
+            inflater.inflate(R.menu.restaurant_home_menu, menu);
+        } else {
+            inflater.inflate(R.menu.customer_home_menu, menu);
+        }
+        super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
