@@ -27,5 +27,7 @@ public class Constants {
 
     public static final int ORDER_STATUS_FINISHED = 5;
 
+    public static final String FIRE_BASE_USER_NODE = "users";
+
 }
 

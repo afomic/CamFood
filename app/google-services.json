@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "557706617212",
+    "firebase_url": "https://camfood-995b7.firebaseio.com",
+    "project_id": "camfood-995b7",
+    "storage_bucket": "camfood-995b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557706617212:android:04a248d4d750d8a6",
+        "android_client_info": {
+          "package_name": "afomic.com.camfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "557706617212-mhmdt2ip0q6tnov1lksglb2debj5ofd3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "afomic.com.camfood",
+            "certificate_hash": "9e1ef639599194e21652de74396582dd07070a2c"
+          }
+        },
+        {
+          "client_id": "557706617212-kp29jc4ij4fovnml5r0dek97pht6f1bf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN-DToHce_ImOF5M85ajUmkDeOP22ESVY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "557706617212-kp29jc4ij4fovnml5r0dek97pht6f1bf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
