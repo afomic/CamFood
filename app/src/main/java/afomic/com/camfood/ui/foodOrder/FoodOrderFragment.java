@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,8 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
     RecyclerView foodOrderRecyclerView;
     @BindView(R.id.empty_layout)
     LinearLayout emptyLayout;
+    @BindView(R.id.progress)
+    ProgressBar mProgressBar;
 
     private FoodOrderPresenter mFoodOrderPresenter;
     private FoodOrderListAdapter mFoodOrderListAdapter;
@@ -104,11 +107,11 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
 
     @Override
     public void showProgressView() {
-
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        mProgressBar.setVisibility(View.GONE);
     }
 }

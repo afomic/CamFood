@@ -30,6 +30,11 @@
             android:text="@string/empty_view_message"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
     </LinearLayout>
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

@@ -27,6 +27,7 @@ public class FoodOrderPresenter extends BasePresenter<FoodOrderView> {
                     @Override
                     public void onSuccess(List<Order> data) {
                         view.hideEmptyView();
+                        view.hideProgressView();
                         if (data != null && data.size() > 0) {
                             view.showFoodOrder(data);
                         } else {
@@ -37,7 +38,8 @@ public class FoodOrderPresenter extends BasePresenter<FoodOrderView> {
 
                     @Override
                     public void onFailure(String reason) {
-                        view.hideEmptyView();
+                        view.showEmptyView();
+                        view.hideProgressView();
                         view.showMessage(reason);
                     }
                 });

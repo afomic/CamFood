@@ -28,6 +28,7 @@ public class FoodListPresenter extends BasePresenter<FoodListView> {
                     @Override
                     public void onSuccess(List<Food> data) {
                         view.hideEmptyView();
+                        view.hideProgressView();
                         if (data.isEmpty()) {
                             view.showEmptyView();
                         } else {
@@ -37,7 +38,8 @@ public class FoodListPresenter extends BasePresenter<FoodListView> {
 
                     @Override
                     public void onFailure(String reason) {
-                        view.hideEmptyView();
+                        view.showEmptyView();
+                        view.hideProgressView();
                         view.showMessage(reason);
                     }
                 });
