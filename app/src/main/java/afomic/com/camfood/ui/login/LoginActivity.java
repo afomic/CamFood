@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.AuthManager;
+import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.ui.home.HomeActivity;
 import afomic.com.camfood.ui.welcome.WelcomeActivity;
 import butterknife.BindView;
@@ -26,7 +29,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         ButterKnife.bind(this);
-        mLoginPresenter = new LoginPresenter(this);
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(this);
+        mLoginPresenter = new LoginPresenter(this, AuthManager.getInstance(), sharedPreferenceHelper);
         mLoginPresenter.loadView();
     }
 
@@ -48,7 +52,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
     }
 
     @Override

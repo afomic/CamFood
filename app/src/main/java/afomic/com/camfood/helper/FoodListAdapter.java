@@ -41,7 +41,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
     @Override
     public int getItemCount() {
-        return 2;
+        return mFoods.size();
     }
 
     public class FoodViewHolder extends RecyclerView.ViewHolder {
@@ -72,7 +72,7 @@ public class FoodListAdapter extends RecyclerView.Adapter<FoodListAdapter.FoodVi
 
         public void bind(Food food) {
             mRatingBar.setRating(food.getRating());
-            String preparationTime=food.getFoodPreparationTime()+" Away";
+            String preparationTime = food.getFoodPreparationTime() + " Away";
             foodTimeTextView.setText(preparationTime);
             restaurantAddressTextView.setText(food.getRestaurantAddress());
             String amount = itemView.getContext().getString(R.string.naira) + StringUtil.getFormattedSting(food.getAmount());

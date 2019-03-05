@@ -9,9 +9,12 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.AuthManager;
+import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.model.User;
 import afomic.com.camfood.ui.home.HomeActivity;
 import butterknife.BindView;
@@ -45,7 +48,9 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
         setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
         int registrationType = getIntent().getIntExtra(Constants.EXTRA_REGISTRATION_TYPE, 0);
-        mSignUpPresenter = new SignUpPresenter(this, registrationType);
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(this);
+        mSignUpPresenter = new SignUpPresenter(this, AuthManager.getInstance(), sharedPreferenceHelper);
+        mSignUpPresenter.setRegistrationType(registrationType);
         mSignUpPresenter.loadView();
     }
 
@@ -71,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(SignUpActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -103,7 +108,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             showWelcomeView();
         }
         return super.onOptionsItemSelected(item);

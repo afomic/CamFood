@@ -87,6 +87,23 @@ public class AuthManager {
         });
     }
 
+    public void getCurrentUser(final AuthCallback authCallback) {
+        String userId = mFirebaseAuth.getCurrentUser().getUid();
+        userReference.child(userId)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        User user = dataSnapshot.getValue(User.class);
+                        authCallback.onSuccess(user);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        authCallback.onError(databaseError.getMessage());
+                    }
+                });
+    }
+
     public interface AuthCallback {
         void onSuccess(User user);
 

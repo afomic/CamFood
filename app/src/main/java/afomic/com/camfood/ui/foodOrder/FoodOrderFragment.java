@@ -18,7 +18,8 @@ import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
-import afomic.com.camfood.data.DummyFoodOrderDataSource;
+import afomic.com.camfood.data.FoodOrderDataSource;
+import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodOrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.ui.orderDetail.OrderDetailActivity;
@@ -46,8 +47,9 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        DummyFoodOrderDataSource dataSource = new DummyFoodOrderDataSource();
-        mFoodOrderPresenter = new FoodOrderPresenter(this, dataSource);
+        FoodOrderDataSource dataSource = new FoodOrderDataSource(getContext());
+        SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(getContext());
+        mFoodOrderPresenter = new FoodOrderPresenter(this, dataSource, sharedPreferenceHelper);
         mFoodOrderPresenter.loadView();
     }
 

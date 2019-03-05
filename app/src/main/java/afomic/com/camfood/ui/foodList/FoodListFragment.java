@@ -18,7 +18,7 @@ import java.util.List;
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.DataSource;
-import afomic.com.camfood.data.DummyFoodDataSource;
+import afomic.com.camfood.data.FoodDataSource;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodListAdapter;
 import afomic.com.camfood.model.Food;
@@ -55,7 +55,7 @@ public class FoodListFragment extends Fragment implements FoodListView {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
         SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(getContext());
-        DataSource<Food> dataSource = new DummyFoodDataSource(getContext());
+        DataSource<Food> dataSource = new FoodDataSource(getContext());
 
         mFoodListPresenter = new FoodListPresenter(this, sharedPreferenceHelper, dataSource);
         mFoodListPresenter.loadView();

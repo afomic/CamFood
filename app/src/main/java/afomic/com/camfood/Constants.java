@@ -1,9 +1,9 @@
 package afomic.com.camfood;
 
 public class Constants {
-    public static final int USER_ACCOUNT_TYPE = 100;
+    public static final int USER_ACCOUNT_TYPE = 0;
 
-    public static final int RESTAURANT_ACCOUNT_TYPE = 101;
+    public static final int RESTAURANT_ACCOUNT_TYPE = 1;
 
     public static final String EXTRA_REGISTRATION_TYPE = "registration_type";
 
@@ -28,6 +28,11 @@ public class Constants {
     public static final int ORDER_STATUS_FINISHED = 5;
 
     public static final String FIRE_BASE_USER_NODE = "users";
+
+    public static final String FIRE_BASE_FOOD_NODE = "foods";
+
+    public static final String FIRE_BASE_FOOD_ORDER_NODE = "foodOrders";
+
 
 }
 
