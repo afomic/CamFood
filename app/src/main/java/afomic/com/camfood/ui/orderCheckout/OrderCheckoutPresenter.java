@@ -40,13 +40,15 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
     public void handleOrderItemClick(OrderItem orderItem) {
         view.showOrderItemQuantityDialog(orderItem);
     }
-    public void handleOrderItemDelete(OrderItem orderItem){
-        List<OrderItem> orderItems=mOrder.getOrderItems();
+
+    public void handleOrderItemDelete(OrderItem orderItem) {
+        List<OrderItem> orderItems = mOrder.getOrderItems();
         orderItems.remove(orderItem);
         view.showOrderItem(orderItems);
         view.showTotalAmount(OrderHelper.getTotalAmountString(orderItems));
     }
-    public void handleOrderItemUpdate(){
+
+    public void handleOrderItemUpdate() {
         view.showTotalAmount(OrderHelper.getTotalAmountString(mOrder.getOrderItems()));
         view.showOrderItem(mOrder.getOrderItems());
     }
@@ -56,10 +58,11 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
     }
 
     public void handleCheckoutOrder() {
-        if (mOrder.getLocation()==null) {
+        if (mOrder.getLocation() == null) {
             view.showMessage("Select pick up location");
             return;
         }
+        view.showProgressView();
         mOrder.addStatus(new OrderStatus(Constants.ORDER_STATUS_CREATED, System.currentTimeMillis()));
         mAuthManager.getCurrentUser(new AuthManager.AuthCallback() {
             @Override
@@ -80,7 +83,6 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
     }
 
     public void saveOrder() {
-        view.showProgressView();
         mOrderDataSource.save(mOrder, new ResponseCallback() {
             @Override
             public void onSuccess() {

@@ -12,10 +12,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.DataSource;
+import afomic.com.camfood.data.FoodOrderDataSource;
 import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.OrderStatusAdapter;
 import afomic.com.camfood.model.Order;
@@ -45,7 +49,8 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
         setContentView(R.layout.activity_order_detail);
         ButterKnife.bind(this);
         Order order = getIntent().getParcelableExtra(Constants.EXTRA_ORDER);
-        mOrderDetailPresenter = new OrderDetailPresenter(this, order);
+        DataSource<Order> orderDataSource = new FoodOrderDataSource(OrderDetailActivity.this);
+        mOrderDetailPresenter = new OrderDetailPresenter(this, order, orderDataSource);
         mOrderDetailPresenter.loadView();
 
     }
@@ -72,6 +77,12 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     public void showStatus(List<OrderStatus> statusList) {
         mOrderStatuses.clear();
         mOrderStatuses.addAll(statusList);
+        Collections.sort(mOrderStatuses, new Comparator<OrderStatus>() {
+            @Override
+            public int compare(OrderStatus orderStatus, OrderStatus t1) {
+                return (int)(orderStatus.getTime()-t1.getTime());
+            }
+        });
         mOrderStatusAdapter.notifyDataSetChanged();
 
     }

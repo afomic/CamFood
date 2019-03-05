@@ -13,16 +13,17 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/status_imageview"
+            android:id="@+id/imv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_circle" />
-        <View
+            android:src="@drawable/ic_radio" />
+
+        <ImageView
             android:id="@+id/horizontal_strip"
             android:layout_width="2dp"
-            android:background="#64dd17"
             android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:src="#64dd17" />
     </LinearLayout>
 
     <RelativeLayout
@@ -35,19 +36,20 @@
             android:id="@+id/tv_status_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="1"
-            android:fontFamily="@font/montserrat_semibold"
             android:layout_marginLeft="16dp"
-            android:paddingTop="4dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:lines="1"
             android:orientation="horizontal"
+            android:paddingTop="4dp"
             android:text="Order Created" />
 
         <TextView
             android:id="@+id/tv_status_time"
             android:layout_width="wrap_content"
+            android:fontFamily="@font/lato_italic"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
             android:text="2 days ago" />
     </RelativeLayout>

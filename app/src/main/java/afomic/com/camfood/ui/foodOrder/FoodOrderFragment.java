@@ -53,6 +53,12 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
         FoodOrderDataSource dataSource = new FoodOrderDataSource(getContext());
         SharedPreferenceHelper sharedPreferenceHelper = new SharedPreferenceHelper(getContext());
         mFoodOrderPresenter = new FoodOrderPresenter(this, dataSource, sharedPreferenceHelper);
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
         mFoodOrderPresenter.loadView();
     }
 

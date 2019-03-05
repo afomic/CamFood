@@ -7,19 +7,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.DataSource;
+import afomic.com.camfood.data.FoodOrderDataSource;
 import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.OrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
+import afomic.com.camfood.model.OrderStatus;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -39,6 +46,12 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
     LinearLayout acceptLayout;
     @BindView(R.id.rv_order_item)
     RecyclerView orderItemRecyclerView;
+    @BindView(R.id.progress)
+    RelativeLayout progressLayout;
+    @BindView(R.id.btn_deliver_order)
+    Button deliverOrderButton;
+    @BindView(R.id.btn_process_order)
+    Button processOrderTextView;
 
 
     private ProcessOrderPresenter mProcessOrderPresenter;
@@ -52,7 +65,8 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
         setContentView(R.layout.activity_process_order);
         ButterKnife.bind(this);
         Order order = getIntent().getParcelableExtra(Constants.EXTRA_ORDER);
-        mProcessOrderPresenter = new ProcessOrderPresenter(this, order);
+        DataSource<Order> orderDataSource = new FoodOrderDataSource(ProcessOrderActivity.this);
+        mProcessOrderPresenter = new ProcessOrderPresenter(this, order, orderDataSource);
         mProcessOrderPresenter.loadView();
     }
 
@@ -80,6 +94,33 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
         customerPhoneTextView.setText(order.getUserPhoneNumber());
         deliveryLocationTextView.setText(order.getLocation());
         OrderItem foodOrder = order.getOrderItems().get(0);
+        OrderStatus status = order.getStatus().get(0);
+        switch (status.getType()) {
+            case Constants.ORDER_STATUS_CREATED:
+                acceptLayout.setVisibility(View.VISIBLE);
+                deliverOrderButton.setVisibility(View.GONE);
+                processOrderTextView.setVisibility(View.GONE);
+                break;
+            case Constants.ORDER_STATUS_ACCEPTED:
+                acceptLayout.setVisibility(View.GONE);
+                deliverOrderButton.setVisibility(View.GONE);
+                processOrderTextView.setVisibility(View.VISIBLE);
+                break;
+            case Constants.ORDER_STATUS_DELIVERED:
+
+            case Constants.ORDER_STATUS_DECLINED:
+                acceptLayout.setVisibility(View.GONE);
+                deliverOrderButton.setVisibility(View.GONE);
+                processOrderTextView.setVisibility(View.GONE);
+                break;
+            case Constants.ORDER_STATUS_PROCESSING:
+                acceptLayout.setVisibility(View.GONE);
+                deliverOrderButton.setVisibility(View.VISIBLE);
+                processOrderTextView.setVisibility(View.GONE);
+                break;
+
+        }
+
         GlideApp.with(ProcessOrderActivity.this)
                 .load(foodOrder.getPictureUrl())
                 .placeholder(R.drawable.preview)
@@ -89,7 +130,6 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
     @Override
     public void showOrderList(List<OrderItem> orderItems) {
         mOrderItems.clear();
-        ;
         mOrderItems.addAll(orderItems);
         mOrderTimeAdapter.notifyDataSetChanged();
     }
@@ -97,17 +137,17 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(ProcessOrderActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void showProgressView() {
-
+        progressLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        progressLayout.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.btn_accept_order)
@@ -123,6 +163,11 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
     @OnClick(R.id.btn_deliver_order)
     public void deliverOrder() {
         mProcessOrderPresenter.handleOrderDelivered();
+    }
+
+    @OnClick(R.id.btn_process_order)
+    public void processOrder() {
+        mProcessOrderPresenter.handleStatProcessing();
     }
 
     @Override
