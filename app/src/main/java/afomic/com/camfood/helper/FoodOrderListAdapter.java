@@ -68,10 +68,10 @@ public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdap
         }
 
         public void bind(Order order) {
-            String amount = mContext.getString(R.string.naira) + StringUtil.getFormattedSting(order.getAmount());
+
             OrderItem foodItem = order.getOrderItems().get(0);
             OrderStatus status = order.getStatus().get(0);
-            orderAmountTextView.setText(amount);
+            orderAmountTextView.setText(OrderHelper.getTotalAmountString(order.getOrderItems()));
             foodNameTextView.setText(foodItem.getName());
             GlideApp.with(itemView)
                     .load(foodItem.getPictureUrl())

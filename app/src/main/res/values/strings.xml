@@ -37,6 +37,7 @@
         <item>Angola Hall Common Room</item>
         <item>Mozambique Hall Common Room</item>
         <item>Akintola Hall Common Room</item>
+        <item>Eat At Restaurant</item>
         <item>Motion Ground</item>
     </string-array>
     <string-array name="restaurant_type">

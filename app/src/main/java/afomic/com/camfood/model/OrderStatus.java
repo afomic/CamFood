@@ -6,18 +6,19 @@ import android.os.Parcelable;
 public class OrderStatus implements Parcelable {
     private int type;
     private long time;
-    private String orderId;
 
-    public OrderStatus(int type, long time, String orderId) {
+    public OrderStatus() {
+
+    }
+
+    public OrderStatus(int type, long time) {
         this.type = type;
         this.time = time;
-        this.orderId = orderId;
     }
 
     protected OrderStatus(Parcel in) {
         type = in.readInt();
         time = in.readLong();
-        orderId = in.readString();
     }
 
     public static final Creator<OrderStatus> CREATOR = new Creator<OrderStatus>() {
@@ -48,13 +49,6 @@ public class OrderStatus implements Parcelable {
         this.time = time;
     }
 
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
 
     @Override
     public int describeContents() {
@@ -65,6 +59,5 @@ public class OrderStatus implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(type);
         parcel.writeLong(time);
-        parcel.writeString(orderId);
     }
 }

@@ -3,7 +3,9 @@ package afomic.com.camfood.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import afomic.com.camfood.R;
@@ -20,6 +22,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
     EditText emailEditText;
     @BindView(R.id.edt_password)
     EditText passwordEditText;
+    @BindView(R.id.progress)
+    RelativeLayout progressLayout;
 
     private LoginPresenter mLoginPresenter;
 
@@ -57,12 +61,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void showProgressView() {
-
+        progressLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        progressLayout.setVisibility(View.GONE);
     }
 
     private void showActivity(Class whereto) {

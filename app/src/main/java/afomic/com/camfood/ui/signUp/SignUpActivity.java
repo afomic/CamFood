@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -38,6 +39,8 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     LinearLayout restaurantLayout;
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
+    @BindView(R.id.progress)
+    RelativeLayout progressLayout;
 
     private SignUpPresenter mSignUpPresenter;
     int registrationType;
@@ -59,7 +62,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     public void setup() {
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if(registrationType==Constants.RESTAURANT_REGISTRATION_TYPE){
+        if (registrationType == Constants.RESTAURANT_REGISTRATION_TYPE) {
             nameEditText.setHint(R.string.restaurant_name);
         }
     }
@@ -85,12 +88,12 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
 
     @Override
     public void showProgressView() {
-
+        progressLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        progressLayout.setVisibility(View.GONE);
     }
 
     @Override

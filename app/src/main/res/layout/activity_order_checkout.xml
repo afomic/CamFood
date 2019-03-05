@@ -16,65 +16,88 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:text="Order List"
-            android:textAppearance="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Header" />
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:id="@+id/rv_order_item"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
-                android:layout_marginTop="8dp"
-                android:layout_marginLeft="16dp"
-                android:textSize="18sp"
-                android:layout_weight="1"
-                android:text="Total Amount" />
+                android:padding="16dp"
+                android:text="Order List"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Widget.PopupMenu.Header" />
 
-            <TextView
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_order_item"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:text="Total Amount"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_total_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:text="#20000"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spn_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:entries="@array/pick_up_locations"
+                android:padding="@dimen/container_padding" />
+
+            <Button
+                android:id="@+id/btn_checkout_order"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:text="Checkout"
+                android:textColor="@color/colorWhite" />
+        </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_translucent_black"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
+
+            <ProgressBar
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="#20000"
-                android:id="@+id/tv_total_amount"
-                android:textSize="18sp"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                android:layout_margin="8dp" />
-        </LinearLayout>
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_bar_drawable" />
 
-        <Spinner
-            android:id="@+id/spn_location"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:entries="@array/pick_up_locations"
-            android:padding="@dimen/container_padding" />
+        </RelativeLayout>
+    </RelativeLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark"
-            android:text="Checkout"
-            android:id="@+id/btn_checkout_order"
-            android:textColor="@color/colorWhite" />
-    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

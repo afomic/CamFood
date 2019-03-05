@@ -1,5 +1,6 @@
 package afomic.com.camfood.ui.orderCheckout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -17,9 +19,12 @@ import java.util.List;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.data.AuthManager;
+import afomic.com.camfood.data.FoodOrderDataSource;
 import afomic.com.camfood.helper.OrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
+import afomic.com.camfood.ui.home.HomeActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -33,6 +38,8 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
     Spinner pickUpLocationSpinner;
     @BindView(R.id.tv_total_amount)
     TextView totalAmountTextView;
+    @BindView(R.id.progress)
+    RelativeLayout progressLayout;
 
 
     private OrderCheckoutPresenter mOrderCheckoutPresenter;
@@ -47,6 +54,8 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
         ButterKnife.bind(this);
         Order order = getIntent().getParcelableExtra(Constants.EXTRA_ORDER);
         mOrderCheckoutPresenter = new OrderCheckoutPresenter(this, order);
+        mOrderCheckoutPresenter.setAuthManager(AuthManager.getInstance());
+        mOrderCheckoutPresenter.setOrderDataSource(new FoodOrderDataSource(OrderCheckoutActivity.this));
         mOrderCheckoutPresenter.loadView();
     }
 
@@ -109,16 +118,24 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
 
     @Override
     public void showProgressView() {
-
+        progressLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressView() {
-
+        progressLayout.setVisibility(View.GONE);
     }
-    @OnClick(R.id.btn_checkout_order)
-    public void checkoutOrder(){
 
+    @Override
+    public void showHome() {
+        Intent intent = new Intent(OrderCheckoutActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    @OnClick(R.id.btn_checkout_order)
+    public void checkoutOrder() {
+        mOrderCheckoutPresenter.handleCheckoutOrder();
     }
 
     @Override

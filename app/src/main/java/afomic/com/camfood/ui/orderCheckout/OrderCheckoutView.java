@@ -13,4 +13,6 @@ public interface OrderCheckoutView extends BaseView {
     void showOrderItemQuantityDialog(OrderItem orderItem);
 
     void showPaymentView();
+
+    void showHome();
 }
