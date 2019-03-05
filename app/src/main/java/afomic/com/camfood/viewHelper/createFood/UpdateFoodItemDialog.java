@@ -69,7 +69,12 @@ public class UpdateFoodItemDialog extends DialogFragment {
                 if (!newQuantity.isEmpty()) {
                     int quantity = Integer.parseInt(newQuantity);
                     currentOrderItem.setQuantity(quantity);
-                    mUpdateOrderItemListener.onUpdate(currentOrderItem);
+                    if(quantity==0){
+                        mUpdateOrderItemListener.onDelete(currentOrderItem);
+                    }else {
+                        mUpdateOrderItemListener.onUpdate(currentOrderItem);
+                    }
+
                 }
 
             }

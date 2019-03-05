@@ -3,6 +3,7 @@ package afomic.com.camfood.helper;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.format.DateUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,6 +73,7 @@ public class FoodOrderListAdapter extends RecyclerView.Adapter<FoodOrderListAdap
             OrderItem foodItem = order.getOrderItems().get(0);
             OrderStatus status = order.getStatus().get(0);
             orderAmountTextView.setText(OrderHelper.getTotalAmountString(order.getOrderItems()));
+            orderTimeTextView.setText(DateUtils.getRelativeTimeSpanString(status.getTime()));
             foodNameTextView.setText(foodItem.getName());
             GlideApp.with(itemView)
                     .load(foodItem.getPictureUrl())

@@ -46,7 +46,7 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
         view.showOrderItem(orderItems);
         view.showTotalAmount(OrderHelper.getTotalAmountString(orderItems));
     }
-    public void handleOrderItemUpdate(OrderItem orderItem){
+    public void handleOrderItemUpdate(){
         view.showTotalAmount(OrderHelper.getTotalAmountString(mOrder.getOrderItems()));
         view.showOrderItem(mOrder.getOrderItems());
     }
@@ -56,7 +56,7 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
     }
 
     public void handleCheckoutOrder() {
-        if (mOrder.getLocation().isEmpty()) {
+        if (mOrder.getLocation()==null) {
             view.showMessage("Select pick up location");
             return;
         }

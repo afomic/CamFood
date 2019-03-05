@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +119,7 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
 
             @Override
             public void onUpdate(OrderItem orderItem) {
-                mOrderCheckoutPresenter.handleOrderItemUpdate(orderItem);
+                mOrderCheckoutPresenter.handleOrderItemUpdate();
             }
         });
         dialog.show(getSupportFragmentManager(), null);
@@ -126,7 +127,7 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(OrderCheckoutActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
