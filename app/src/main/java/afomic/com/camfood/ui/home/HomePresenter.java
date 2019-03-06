@@ -25,6 +25,9 @@ public class HomePresenter extends BasePresenter<HomeView> {
             case R.id.menu_order:
                 view.showOrderView();
                 break;
+            case R.id.menu_profile:
+                view.showProfileView();
+                break;
         }
     }
 

@@ -17,6 +17,7 @@ import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodList.FoodListFragment;
 import afomic.com.camfood.ui.foodOrder.FoodOrderFragment;
+import afomic.com.camfood.ui.profile.ProfileFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -71,6 +72,12 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     @Override
     public void showOrderView() {
         FoodOrderFragment fragment = new FoodOrderFragment();
+        displayFragment(fragment);
+    }
+
+    @Override
+    public void showProfileView() {
+        ProfileFragment fragment = new ProfileFragment();
         displayFragment(fragment);
     }
 

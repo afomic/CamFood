@@ -7,5 +7,7 @@ public interface HomeView extends BaseView {
 
     void showOrderView();
 
+    void showProfileView();
+
     void showAddFoodView();
 }
