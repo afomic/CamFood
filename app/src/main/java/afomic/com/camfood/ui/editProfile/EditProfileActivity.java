@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
@@ -53,7 +54,7 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
 
     @Override
     public void showMessage(String message) {
-
+        Toast.makeText(EditProfileActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -84,5 +85,10 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     @Override
     public String getPhoneNumber() {
         return phoneNumberEditText.getText().toString();
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
     }
 }

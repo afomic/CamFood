@@ -16,4 +16,6 @@ public interface EditProfileView extends BaseView {
 
     String getPhoneNumber();
 
+    void finishActivity();
+
 }

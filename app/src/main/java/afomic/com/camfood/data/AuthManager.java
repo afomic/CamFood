@@ -104,6 +104,24 @@ public class AuthManager {
                 });
     }
 
+    public void updateUser(User user, final AuthCallback authCallback) {
+        String userId = user.id;
+        userReference.child(userId)
+                .setValue(user)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        authCallback.onSuccess(null);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        authCallback.onError(e.getMessage());
+                    }
+                });
+    }
+
     public interface AuthCallback {
         void onSuccess(User user);
 
