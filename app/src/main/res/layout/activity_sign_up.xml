@@ -74,6 +74,7 @@
                 android:inputType="phone"
                 android:padding="@dimen/edit_text_padding" />
 
+
             <LinearLayout
                 android:id="@+id/restaurant_layout"
                 android:layout_width="match_parent"

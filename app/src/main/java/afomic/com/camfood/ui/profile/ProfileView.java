@@ -7,4 +7,6 @@ public interface ProfileView extends BaseView {
     void showProfile(User user);
 
     void showEditProfileView();
+
+    void setUpCustomerProfile();
 }

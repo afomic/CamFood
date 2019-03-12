@@ -35,6 +35,7 @@
     <string name="delete_text">DELETE</string>
     <string name="cancel_text">CANCEL</string>
     <string name="start_processing_text">Start Processing</string>
+    <string name="update_profile">UPDATE PROFILE</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>
