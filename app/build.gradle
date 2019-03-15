@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.5'
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.0'
     implementation 'com.iceteck.silicompressorr:silicompressor:2.2.1'
+    testImplementation 'org.mockito:mockito-core:2.25.0'
 }

@@ -36,6 +36,7 @@
         <activity android:name=".ui.createFood.CreateFoodActivity" />
         <activity android:name=".ui.processOrder.ProcessOrderActivity" />
         <activity android:name=".ui.editProfile.EditProfileActivity" />
+        <activity android:name=".ui.payment.PaymentActivity" />
     </application>
 
 </manifest>

@@ -29,7 +29,7 @@ public class AuthManager {
         return mAuthManager;
     }
 
-    private AuthManager() {
+    public AuthManager() {
         mFirebaseAuth = FirebaseAuth.getInstance();
         userReference = FirebaseDatabase.getInstance().getReference(Constants.FIRE_BASE_USER_NODE);
     }

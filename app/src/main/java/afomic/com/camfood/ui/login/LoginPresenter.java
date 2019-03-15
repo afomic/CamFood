@@ -1,5 +1,7 @@
 package afomic.com.camfood.ui.login;
 
+import java.util.regex.Pattern;
+
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.model.User;
@@ -21,6 +23,15 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     public void loginUser(String email, String password) {
+
+        if(email.isEmpty()){
+            view.showMessage("please provide email address");
+            return;
+        }
+        if(password.isEmpty()){
+            view.showMessage("please provide password address");
+            return;
+        }
         view.showProgressView();
         mAuthManager.login(email, password, new AuthManager.AuthCallback() {
             @Override
