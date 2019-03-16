@@ -25,13 +25,14 @@ import afomic.com.camfood.data.FoodOrderDataSource;
 import afomic.com.camfood.helper.OrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.home.HomeActivity;
 import afomic.com.camfood.viewHelper.createFood.UpdateFoodItemDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OrderCheckoutActivity extends AppCompatActivity implements OrderCheckoutView {
+public class OrderCheckoutActivity extends BaseActivity implements OrderCheckoutView {
     @BindView(R.id.rv_order_item)
     RecyclerView orderItemRecyclerView;
     @BindView(R.id.toolbar)
@@ -125,10 +126,6 @@ public class OrderCheckoutActivity extends AppCompatActivity implements OrderChe
         dialog.show(getSupportFragmentManager(), null);
     }
 
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(OrderCheckoutActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void showProgressView() {

@@ -24,11 +24,12 @@ import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.OrderStatusAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderStatus;
+import afomic.com.camfood.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class OrderDetailActivity extends AppCompatActivity implements OrderDetailView {
+public class OrderDetailActivity extends BaseActivity implements OrderDetailView {
     @BindView(R.id.rv_order_status)
     RecyclerView statusRecyclerView;
     @BindView(R.id.toolbar)
@@ -95,11 +96,6 @@ public class OrderDetailActivity extends AppCompatActivity implements OrderDetai
     @Override
     public void hideFinishedButton() {
         approveOrderButton.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showMessage(String message) {
-
     }
 
     @Override

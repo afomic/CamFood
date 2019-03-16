@@ -15,12 +15,13 @@ import android.widget.Toast;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.model.User;
+import afomic.com.camfood.ui.base.BaseFragment;
 import afomic.com.camfood.ui.editProfile.EditProfileActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProfileFragment extends Fragment implements ProfileView {
+public class ProfileFragment extends BaseFragment implements ProfileView {
     @BindView(R.id.tv_name)
     TextView nameTextView;
     @BindView(R.id.tv_email)
@@ -70,12 +71,6 @@ public class ProfileFragment extends Fragment implements ProfileView {
     public void showEditProfileView() {
         Intent intent = new Intent(getContext(), EditProfileActivity.class);
         startActivity(intent);
-    }
-
-
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -26,12 +26,13 @@ import afomic.com.camfood.data.FoodDataSource;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodListAdapter;
 import afomic.com.camfood.model.Food;
+import afomic.com.camfood.ui.base.BaseFragment;
 import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodTopping.FoodToppingActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FoodListFragment extends Fragment implements FoodListView {
+public class FoodListFragment extends BaseFragment implements FoodListView {
 
     @BindView(R.id.rv_food)
     RecyclerView foodRecyclerView;
@@ -127,12 +128,6 @@ public class FoodListFragment extends Fragment implements FoodListView {
     @Override
     public void hideEmptyView() {
         emptyLayout.setVisibility(View.GONE);
-    }
-
-
-    @Override
-    public void showMessage(String message) {
-
     }
 
     @Override

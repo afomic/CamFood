@@ -21,12 +21,13 @@ import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
 import afomic.com.camfood.model.Order;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.orderCheckout.OrderCheckoutActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FoodToppingActivity extends AppCompatActivity implements FoodToppingView {
+public class FoodToppingActivity extends BaseActivity implements FoodToppingView {
     @BindView(R.id.imv_food)
     ImageView foodImageView;
     @BindView(R.id.rv_food_topping)
@@ -92,21 +93,6 @@ public class FoodToppingActivity extends AppCompatActivity implements FoodToppin
         mFoodToppingListAdapter.notifyDataSetChanged();
     }
 
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showProgressView() {
-
-    }
-
-    @Override
-    public void hideProgressView() {
-
-    }
 
     @OnClick(R.id.btn_create_order)
     public void createOrder() {

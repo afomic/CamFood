@@ -27,11 +27,12 @@ import afomic.com.camfood.helper.OrderListAdapter;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
 import afomic.com.camfood.model.OrderStatus;
+import afomic.com.camfood.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class ProcessOrderActivity extends AppCompatActivity implements ProcessOrderView {
+public class ProcessOrderActivity extends BaseActivity implements ProcessOrderView {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.tv_name)
@@ -135,10 +136,6 @@ public class ProcessOrderActivity extends AppCompatActivity implements ProcessOr
     }
 
 
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(ProcessOrderActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void showProgressView() {

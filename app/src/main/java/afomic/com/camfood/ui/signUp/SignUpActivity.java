@@ -17,12 +17,13 @@ import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.model.User;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.home.HomeActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpView {
+public class SignUpActivity extends BaseActivity implements SignUpView {
     @BindView(R.id.edt_password)
     EditText passwordEditText;
     @BindView(R.id.edt_email)
@@ -81,10 +82,6 @@ public class SignUpActivity extends AppCompatActivity implements SignUpView {
     }
 
 
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(SignUpActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void showProgressView() {

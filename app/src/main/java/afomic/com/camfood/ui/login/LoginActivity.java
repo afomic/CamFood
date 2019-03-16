@@ -11,13 +11,14 @@ import android.widget.Toast;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.SharedPreferenceHelper;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.home.HomeActivity;
 import afomic.com.camfood.ui.welcome.WelcomeActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends BaseActivity implements LoginView {
     @BindView(R.id.edt_email)
     EditText emailEditText;
     @BindView(R.id.edt_password)
@@ -53,11 +54,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         showActivity(WelcomeActivity.class);
     }
 
-
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(LoginActivity.this,message,Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void showProgressView() {

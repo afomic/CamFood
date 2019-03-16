@@ -9,4 +9,8 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         Toast.makeText(BaseActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void showMessage(int resId) {
+        Toast.makeText(BaseActivity.this, resId, Toast.LENGTH_SHORT).show();
+    }
 }

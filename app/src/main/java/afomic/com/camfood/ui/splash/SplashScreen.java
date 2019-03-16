@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.SharedPreferenceHelper;
+import afomic.com.camfood.ui.base.BaseActivity;
+import afomic.com.camfood.ui.base.BaseFragment;
 import afomic.com.camfood.ui.home.HomeActivity;
 import afomic.com.camfood.ui.welcome.WelcomeActivity;
 
 
-public class SplashScreen extends AppCompatActivity implements SplashScreenView {
+public class SplashScreen extends BaseActivity implements SplashScreenView {
 
     private SplashScreenPresenter mSplashScreenPresenter;
 
@@ -41,18 +43,4 @@ public class SplashScreen extends AppCompatActivity implements SplashScreenView 
         finish();
     }
 
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showProgressView() {
-
-    }
-
-    @Override
-    public void hideProgressView() {
-
-    }
 }

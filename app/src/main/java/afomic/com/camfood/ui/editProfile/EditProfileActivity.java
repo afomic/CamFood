@@ -10,11 +10,12 @@ import android.widget.Toast;
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.model.User;
+import afomic.com.camfood.ui.base.BaseActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class EditProfileActivity extends AppCompatActivity implements EditProfileView {
+public class EditProfileActivity extends BaseActivity implements EditProfileView {
     @BindView(R.id.edt_username)
     EditText usernameEditText;
 
@@ -50,11 +51,6 @@ public class EditProfileActivity extends AppCompatActivity implements EditProfil
     @Override
     public void setUpCustomerView() {
         addressEditText.setVisibility(View.GONE);
-    }
-
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(EditProfileActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.SharedPreferenceHelper;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodList.FoodListFragment;
 import afomic.com.camfood.ui.foodOrder.FoodOrderFragment;
@@ -21,7 +22,7 @@ import afomic.com.camfood.ui.profile.ProfileFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HomeActivity extends AppCompatActivity implements HomeView {
+public class HomeActivity extends BaseActivity implements HomeView {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.drawer_layout)
@@ -85,21 +86,6 @@ public class HomeActivity extends AppCompatActivity implements HomeView {
     public void showAddFoodView() {
         Intent intent = new Intent(HomeActivity.this, CreateFoodActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showProgressView() {
-
-    }
-
-    @Override
-    public void hideProgressView() {
-
     }
 
 

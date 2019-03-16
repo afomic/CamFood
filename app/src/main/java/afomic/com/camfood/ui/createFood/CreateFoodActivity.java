@@ -39,12 +39,13 @@ import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.viewHelper.CreateFoodToppingAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class CreateFoodActivity extends AppCompatActivity implements CreateFoodView {
+public class CreateFoodActivity extends BaseActivity implements CreateFoodView {
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.edt_food_amount)
@@ -155,12 +156,6 @@ public class CreateFoodActivity extends AppCompatActivity implements CreateFoodV
             selectImageFromPhone();
         }
     }
-
-    @Override
-    public void showMessage(String message) {
-        Toast.makeText(CreateFoodActivity.this, message, Toast.LENGTH_SHORT).show();
-    }
-
     @Override
     public void showProgressView() {
         progressLayout.setVisibility(View.VISIBLE);

@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import afomic.com.camfood.Constants;
 import afomic.com.camfood.R;
+import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.home.HomeActivity;
 import afomic.com.camfood.ui.login.LoginActivity;
 import afomic.com.camfood.ui.signUp.SignUpActivity;
@@ -19,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class WelcomeActivity extends AppCompatActivity implements WelcomeView {
+public class WelcomeActivity extends BaseActivity implements WelcomeView {
     private WelcomePresenter mWelcomePresenter;
     @BindView(R.id.tv_login_span)
     TextView loginSpanTextView;
@@ -83,21 +84,6 @@ public class WelcomeActivity extends AppCompatActivity implements WelcomeView {
     @Override
     public void showRestaurantRegistrationView() {
         showSignUpView(Constants.RESTAURANT_REGISTRATION_TYPE);
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showProgressView() {
-
-    }
-
-    @Override
-    public void hideProgressView() {
-
     }
 
     public void showSignUpView(int registrationType) {

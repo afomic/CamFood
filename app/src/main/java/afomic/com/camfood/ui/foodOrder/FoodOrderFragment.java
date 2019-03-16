@@ -23,12 +23,13 @@ import afomic.com.camfood.data.FoodOrderDataSource;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.helper.FoodOrderListAdapter;
 import afomic.com.camfood.model.Order;
+import afomic.com.camfood.ui.base.BaseFragment;
 import afomic.com.camfood.ui.orderDetail.OrderDetailActivity;
 import afomic.com.camfood.ui.processOrder.ProcessOrderActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FoodOrderFragment extends Fragment implements FoodOrderView {
+public class FoodOrderFragment extends BaseFragment implements FoodOrderView {
     @BindView(R.id.rv_food_order)
     RecyclerView foodOrderRecyclerView;
     @BindView(R.id.empty_layout)
@@ -106,10 +107,6 @@ public class FoodOrderFragment extends Fragment implements FoodOrderView {
         emptyLayout.setVisibility(View.GONE);
     }
 
-    @Override
-    public void showMessage(String message) {
-
-    }
 
     @Override
     public void showProgressView() {

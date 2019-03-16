@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import afomic.com.camfood.ui.base.BaseActivity;
 
-public class PaymentActivity extends BaseActivity {
+public class PaymentActivity extends BaseActivity implements PaymentView {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
