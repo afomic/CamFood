@@ -90,11 +90,13 @@
         android:layout_width="wrap_content"
         android:layout_height="1dp"
         android:background="@color/dividerColor" />
+
     <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="vertical"
         android:id="@+id/address_layout"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,6 +122,49 @@
             android:background="@color/dividerColor" />
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_balance_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            android:paddingLeft="24dp"
+            android:paddingTop="@dimen/big_text_padding"
+            android:paddingBottom="@dimen/normal_padding"
+            android:text="@string/account_balance_label"
+            android:textSize="@dimen/small_text_size" />
+
+        <Button
+            android:id="@+id/btn_fund_wallet"
+            android:layout_width="120dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/button_margin"
+            android:background="@color/colorPrimary"
+            android:text="Withdraw"
+            android:textColor="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tv_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_balance_label"
+            android:fontFamily="@font/lato_bold"
+            android:paddingLeft="24dp"
+            android:paddingBottom="@dimen/big_text_padding"
+            android:text="#20003" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_balance"
+            android:background="@color/dividerColor" />
+    </RelativeLayout>
 
 
     <Button

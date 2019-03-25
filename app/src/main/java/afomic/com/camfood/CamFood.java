@@ -12,4 +12,5 @@ public class CamFood extends Application {
         FirebaseDatabase.getInstance()
                 .setPersistenceEnabled(true);
     }
+
 }

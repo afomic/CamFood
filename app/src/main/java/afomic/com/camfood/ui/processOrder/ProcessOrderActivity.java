@@ -135,8 +135,6 @@ public class ProcessOrderActivity extends BaseActivity implements ProcessOrderVi
         mOrderTimeAdapter.notifyDataSetChanged();
     }
 
-
-
     @Override
     public void showProgressView() {
         progressLayout.setVisibility(View.VISIBLE);

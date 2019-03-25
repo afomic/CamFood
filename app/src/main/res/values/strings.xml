@@ -36,6 +36,13 @@
     <string name="cancel_text">CANCEL</string>
     <string name="start_processing_text">Start Processing</string>
     <string name="update_profile">UPDATE PROFILE</string>
+    <string name="empty_food_name_error">Food name cannot be empty</string>
+    <string name="empty_topping_error">Kindly add one more or topping</string>
+    <string name="empty_food_price_error">Food Price cannot be empty</string>
+    <string name="empty_food_completion_time_error">Food time to Completion cannot be empty</string>
+    <string name="food_sucessfully_added">Food Successfully added</string>
+    <string name="account_balance_label">Account Balance</string>
+    <string name="fund_wallet_button_title">Fund Wallet</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

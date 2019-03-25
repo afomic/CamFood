@@ -10,4 +10,6 @@ public interface ProfileView extends LoadingBaseView {
     void showEditProfileView();
 
     void setUpCustomerProfile();
+
+    void showFundWalletDialog();
 }

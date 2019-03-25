@@ -14,5 +14,4 @@ public interface CreateFoodView extends LoadingBaseView {
 
     void showHome();
 
-
 }

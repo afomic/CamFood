@@ -8,9 +8,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.NumberFormat;
+import java.util.Locale;
 
 import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
@@ -30,8 +34,12 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
     TextView addressTextView;
     @BindView(R.id.tv_phone_number)
     TextView phoneNumberTextView;
+    @BindView(R.id.tv_balance)
+    TextView accountBalanceTextView;
     @BindView(R.id.address_layout)
     LinearLayout addressLayout;
+    @BindView(R.id.btn_fund_wallet)
+    Button fundWalletButton;
 
     private ProfilePresenter mProfilePresenter;
 
@@ -57,6 +65,8 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
     @Override
     public void setUpCustomerProfile() {
         addressLayout.setVisibility(View.GONE);
+        fundWalletButton.setText(getString(R.string.fund_wallet_button_title));
+        fundWalletButton.setBackgroundColor(getResources().getColor(R.color.acceptedColor));
     }
 
     @Override
@@ -65,12 +75,28 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
         emailTextView.setText(user.email);
         addressTextView.setText(user.address);
         phoneNumberTextView.setText(user.phonNumber);
+        String balance = getString(R.string.naira) + NumberFormat.getNumberInstance().format(user.accountBalance);
+        accountBalanceTextView.setText(balance);
+
     }
 
     @Override
     public void showEditProfileView() {
         Intent intent = new Intent(getContext(), EditProfileActivity.class);
         startActivity(intent);
+    }
+
+
+    @OnClick(R.id.btn_edit_profile)
+    public void onEditProfileClicked() {
+        mProfilePresenter.handleEditProfile();
+
+    }
+
+    @Override
+    public void showFundWalletDialog() {
+
+
     }
 
     @Override
@@ -83,9 +109,8 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
 
     }
 
-    @OnClick(R.id.btn_edit_profile)
-    public void onEditProfileClicked() {
-        mProfilePresenter.handleEditProfile();
+    @OnClick(R.id.btn_fund_wallet)
+    public void fundWallet() {
 
     }
 }

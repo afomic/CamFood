@@ -35,6 +35,7 @@ import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.DataSource;
 import afomic.com.camfood.data.FoodDataSource;
+import afomic.com.camfood.helper.FirebaseFileService;
 import afomic.com.camfood.helper.GlideApp;
 import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
@@ -79,6 +80,7 @@ public class CreateFoodActivity extends BaseActivity implements CreateFoodView {
         DataSource<Food> dataSource = new FoodDataSource(this);
         mCreateFoodPresenter = new CreateFoodPresenter(this, ToppingHelper.getInstance(CreateFoodActivity.this), authManager);
         mCreateFoodPresenter.setFoodDataSource(dataSource);
+        mCreateFoodPresenter.setFirebaseFileService(new FirebaseFileService());
         mCreateFoodPresenter.loadView();
 
     }

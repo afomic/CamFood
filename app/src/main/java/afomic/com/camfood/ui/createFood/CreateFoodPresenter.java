@@ -15,9 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import afomic.com.camfood.Constants;
+import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.DataSource;
 import afomic.com.camfood.data.ResponseCallback;
+import afomic.com.camfood.helper.FirebaseFileService;
 import afomic.com.camfood.helper.ToppingHelper;
 import afomic.com.camfood.model.Food;
 import afomic.com.camfood.model.FoodTopping;
@@ -29,6 +31,7 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
     private List<FoodTopping> selectedFoodTopping;
     private AuthManager mAuthManager;
     private DataSource<Food> mFoodDataSource;
+    private FirebaseFileService firebaseFileService;
 
     public CreateFoodPresenter(CreateFoodView view, ToppingHelper toppingHelper, AuthManager authManager) {
         super(view);
@@ -39,6 +42,10 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
 
     public void setFoodDataSource(DataSource<Food> foodDataSource) {
         mFoodDataSource = foodDataSource;
+    }
+
+    public void setFirebaseFileService(FirebaseFileService firebaseFileService) {
+        this.firebaseFileService = firebaseFileService;
     }
 
     @Override
@@ -57,19 +64,19 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
 
     public void createFood(String foodName, String foodAmount, String foodTime, final Uri imageUri) {
         if (foodName.isEmpty()) {
-            view.showMessage("Food name cannot be empty");
+            view.showMessage(R.string.empty_food_name_error);
             return;
         }
         if (selectedFoodTopping.isEmpty()) {
-            view.showMessage("Kindly add one ore or topping");
+            view.showMessage(R.string.empty_topping_error);
             return;
         }
         if (foodAmount.isEmpty()) {
-            view.showMessage("Food Price cannot be empty");
+            view.showMessage(R.string.empty_food_price_error);
             return;
         }
         if (foodTime.isEmpty()) {
-            view.showMessage("Food time to Completion cannot be empty");
+            view.showMessage(R.string.empty_food_completion_time_error);
             return;
         }
         final Food food = new Food();
@@ -101,7 +108,7 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
             @Override
             public void onSuccess() {
                 view.hideProgressView();
-                view.showMessage("Food Successfully added");
+                view.showMessage(R.string.food_sucessfully_added);
                 view.showHome();
             }
 
@@ -114,31 +121,17 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
     }
 
     public void uploadImage(@NonNull Uri imageUri, final Food food) {
-        final StorageReference foodImageRef = FirebaseStorage.getInstance().getReference(Constants.FIRE_BASE_FOOD_IMAGE_NODE)
-                .child(imageUri.getLastPathSegment());
-        final UploadTask uploadTask = foodImageRef
-                .putFile(imageUri);
-        uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+        firebaseFileService.uploadFile(imageUri, new FirebaseFileService.UploadServiceCallback() {
             @Override
-            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                if (!task.isSuccessful()) {
-                    throw task.getException();
-                }
-
-                return foodImageRef.getDownloadUrl();
+            public void onSuccess(String downloadUrl) {
+                food.setPictureUrl(downloadUrl);
+                saveFood(food);
             }
-        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-            @Override
-            public void onComplete(@NonNull Task<Uri> task) {
-                if (task.isSuccessful()) {
-                    Uri downloadUri = task.getResult();
-                    food.setPictureUrl(downloadUri.toString());
-                    saveFood(food);
 
-                } else {
-                    view.hideProgressView();
-                    view.showMessage(task.getException().getMessage());
-                }
+            @Override
+            public void onFailure(String reason) {
+                view.hideProgressView();
+                view.showMessage(reason);
             }
         });
     }

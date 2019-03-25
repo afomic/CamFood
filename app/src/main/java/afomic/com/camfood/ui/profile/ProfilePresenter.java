@@ -37,4 +37,7 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
     public void handleEditProfile() {
         view.showEditProfileView();
     }
+    public void handleFundWallet(){
+
+    }
 }
