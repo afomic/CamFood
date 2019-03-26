@@ -4,21 +4,29 @@ import java.util.Collections;
 import java.util.List;
 
 import afomic.com.camfood.Constants;
+import afomic.com.camfood.R;
+import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.DataSource;
 import afomic.com.camfood.data.ResponseCallback;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
 import afomic.com.camfood.model.OrderStatus;
+import afomic.com.camfood.model.User;
 import afomic.com.camfood.ui.base.BasePresenter;
 
 public class OrderDetailPresenter extends BasePresenter<OrderDetailView> {
     private Order mOrder;
     private DataSource<Order> mOrderDataSource;
+    private AuthManager authManager;
 
     public OrderDetailPresenter(OrderDetailView view, Order order, DataSource<Order> orderDataSource) {
         super(view);
         this.mOrder = order;
         mOrderDataSource = orderDataSource;
+    }
+
+    public void setAuthManager(AuthManager authManager) {
+        this.authManager = authManager;
     }
 
     @Override
@@ -39,9 +47,17 @@ public class OrderDetailPresenter extends BasePresenter<OrderDetailView> {
         mOrderDataSource.update(mOrder, new ResponseCallback() {
             @Override
             public void onSuccess() {
-                view.hideProgressView();
-                view.showMessage("Order Marked As Completed");
-                loadView();
+                authManager.getUser(mOrder.getRestaurantId(), new AuthManager.AuthCallback() {
+                    @Override
+                    public void onSuccess(User user) {
+                        fundRestuarant(user,mOrder.getAmount());
+                    }
+
+                    @Override
+                    public void onError(String reason) {
+                        view.showMessage(reason);
+                    }
+                });
             }
 
             @Override
@@ -51,5 +67,24 @@ public class OrderDetailPresenter extends BasePresenter<OrderDetailView> {
 
             }
         });
+    }
+
+    private void fundRestuarant(User restaurant, int amount) {
+        restaurant.accountBalance += amount;
+        authManager.updateUser(restaurant, new AuthManager.AuthCallback() {
+            @Override
+            public void onSuccess(User user) {
+                view.hideProgressView();
+                view.showMessage("Order Marked As Completed");
+                loadView();
+            }
+
+            @Override
+            public void onError(String reason) {
+                view.showMessage(reason);
+            }
+        });
+
+
     }
 }
