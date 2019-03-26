@@ -8,6 +8,7 @@ import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.DataSource;
 import afomic.com.camfood.data.ResponseCallback;
+import afomic.com.camfood.helper.OrderHelper;
 import afomic.com.camfood.model.Order;
 import afomic.com.camfood.model.OrderItem;
 import afomic.com.camfood.model.OrderStatus;
@@ -50,7 +51,8 @@ public class OrderDetailPresenter extends BasePresenter<OrderDetailView> {
                 authManager.getUser(mOrder.getRestaurantId(), new AuthManager.AuthCallback() {
                     @Override
                     public void onSuccess(User user) {
-                        fundRestuarant(user,mOrder.getAmount());
+                        int amount= OrderHelper.getTotalAmount(mOrder.getOrderItems());
+                        fundRestuarant(user, amount);
                     }
 
                     @Override
@@ -70,7 +72,7 @@ public class OrderDetailPresenter extends BasePresenter<OrderDetailView> {
     }
 
     private void fundRestuarant(User restaurant, int amount) {
-        restaurant.accountBalance += amount;
+        restaurant.accountBalance = restaurant.accountBalance + amount;
         authManager.updateUser(restaurant, new AuthManager.AuthCallback() {
             @Override
             public void onSuccess(User user) {

@@ -1,5 +1,6 @@
 package afomic.com.camfood.ui.foodOrder;
 
+import java.util.Collections;
 import java.util.List;
 
 import afomic.com.camfood.Constants;
@@ -28,6 +29,7 @@ public class FoodOrderPresenter extends BasePresenter<FoodOrderView> {
                     public void onSuccess(List<Order> data) {
                         view.hideEmptyView();
                         view.hideProgressView();
+                        Collections.reverse(data);
                         if (data != null && data.size() > 0) {
                             view.showFoodOrder(data);
                         } else {

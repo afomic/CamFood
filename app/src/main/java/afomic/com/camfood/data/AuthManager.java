@@ -100,7 +100,8 @@ public class AuthManager {
     }
 
     public void getUser(String userId, final AuthCallback authCallback) {
-        userReference.child(userId)
+        userReference
+                .child(userId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

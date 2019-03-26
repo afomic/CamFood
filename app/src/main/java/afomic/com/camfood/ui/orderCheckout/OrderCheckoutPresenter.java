@@ -94,7 +94,7 @@ public class OrderCheckoutPresenter extends BasePresenter<OrderCheckoutView> {
                 mOrder.setUserId(user.id);
                 mOrder.setUserPhoneNumber(user.phonNumber);
                 mOrder.setUserName(user.name);
-                user.accountBalance+=mOrder.getAmount();
+                user.accountBalance = user.accountBalance  - OrderHelper.getTotalAmount(mOrder.getOrderItems());
                 mAuthManager.updateUser(user, new AuthManager.AuthCallback() {
                     @Override
                     public void onSuccess(User user) {
