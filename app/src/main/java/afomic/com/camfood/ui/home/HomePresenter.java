@@ -28,6 +28,10 @@ public class HomePresenter extends BasePresenter<HomeView> {
             case R.id.menu_profile:
                 view.showProfileView();
                 break;
+            case R.id.menu_logout:
+                view.showLoginView();
+                mSharedPreferenceHelper.saveBooleanPref(SharedPreferenceHelper.PREF_USER_EXIST, false);
+                break;
         }
     }
 

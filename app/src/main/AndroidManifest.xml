@@ -37,6 +37,8 @@
         <activity android:name=".ui.processOrder.ProcessOrderActivity" />
         <activity android:name=".ui.editProfile.EditProfileActivity" />
         <activity android:name=".ui.payment.PaymentActivity" />
+
+        <service android:name=".service.NotificationService" />
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -88,8 +89,14 @@ public class AuthManager {
     }
 
     public void getCurrentUser(final AuthCallback authCallback) {
-        String userId = mFirebaseAuth.getCurrentUser().getUid();
-        getUser(userId, authCallback);
+        FirebaseUser user=mFirebaseAuth.getCurrentUser();
+        if(user!=null){
+            String userId = user.getUid();
+            getUser(userId, authCallback);
+        }else {
+            authCallback.onError("No User");
+        }
+
     }
 
     public void getUser(String userId, final AuthCallback authCallback) {

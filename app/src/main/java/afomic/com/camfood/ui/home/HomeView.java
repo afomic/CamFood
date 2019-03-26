@@ -11,4 +11,6 @@ public interface HomeView extends LoadingBaseView {
     void showProfileView();
 
     void showAddFoodView();
+
+    void showLoginView();
 }

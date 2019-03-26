@@ -35,6 +35,8 @@ public class Constants {
 
     public static final String FIRE_BASE_FOOD_IMAGE_NODE = "foodImages";
 
+    public static final String DISMISS = "DISMISS";
+
 
 }
 

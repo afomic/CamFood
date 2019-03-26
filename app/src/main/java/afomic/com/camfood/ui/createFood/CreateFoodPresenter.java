@@ -65,20 +65,25 @@ public class CreateFoodPresenter extends BasePresenter<CreateFoodView> {
     public void createFood(String foodName, String foodAmount, String foodTime, final Uri imageUri) {
         if (foodName.isEmpty()) {
             view.showMessage(R.string.empty_food_name_error);
+            view.hideProgressView();
             return;
         }
         if (selectedFoodTopping.isEmpty()) {
             view.showMessage(R.string.empty_topping_error);
+            view.hideProgressView();
             return;
         }
         if (foodAmount.isEmpty()) {
             view.showMessage(R.string.empty_food_price_error);
+            view.hideProgressView();
             return;
         }
         if (foodTime.isEmpty()) {
             view.showMessage(R.string.empty_food_completion_time_error);
+            view.hideProgressView();
             return;
         }
+
         final Food food = new Food();
         food.setAmount(Integer.parseInt(foodAmount));
         food.setName(foodName);

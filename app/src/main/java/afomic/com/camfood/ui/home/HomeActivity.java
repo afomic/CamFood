@@ -22,6 +22,7 @@ import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.createFood.CreateFoodActivity;
 import afomic.com.camfood.ui.foodList.FoodListFragment;
 import afomic.com.camfood.ui.foodOrder.FoodOrderFragment;
+import afomic.com.camfood.ui.login.LoginActivity;
 import afomic.com.camfood.ui.profile.ProfileFragment;
 import afomic.com.camfood.viewHelper.fundWallet.FundWalletDialog;
 import butterknife.BindView;
@@ -95,6 +96,12 @@ public class HomeActivity extends BaseActivity implements HomeView, FundWalletDi
     }
 
     @Override
+    public void showLoginView() {
+        Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void showProgressView() {
         progressLayout.setVisibility(View.VISIBLE);
     }
@@ -161,6 +168,7 @@ public class HomeActivity extends BaseActivity implements HomeView, FundWalletDi
                     });
                 } else {
                     showMessage(R.string.insufficient_balance);
+                    hideProgressView();
                 }
 
             }

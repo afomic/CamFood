@@ -46,6 +46,7 @@ public class LoginActivity extends BaseActivity implements LoginView {
 
     @Override
     public void showHomeView() {
+
         showActivity(HomeActivity.class);
     }
 

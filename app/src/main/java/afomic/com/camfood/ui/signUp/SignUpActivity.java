@@ -17,6 +17,7 @@ import afomic.com.camfood.R;
 import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.data.SharedPreferenceHelper;
 import afomic.com.camfood.model.User;
+import afomic.com.camfood.service.NotificationService;
 import afomic.com.camfood.ui.base.BaseActivity;
 import afomic.com.camfood.ui.home.HomeActivity;
 import butterknife.BindView;
@@ -70,6 +71,8 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
 
     @Override
     public void showHomeView() {
+        Intent service = new Intent(getApplicationContext(), NotificationService.class);
+        startService(service);
         Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
