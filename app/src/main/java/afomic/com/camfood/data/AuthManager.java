@@ -89,6 +89,10 @@ public class AuthManager {
 
     public void getCurrentUser(final AuthCallback authCallback) {
         String userId = mFirebaseAuth.getCurrentUser().getUid();
+        getUser(userId, authCallback);
+    }
+
+    public void getUser(String userId, final AuthCallback authCallback) {
         userReference.child(userId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override

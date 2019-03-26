@@ -21,6 +21,7 @@ import afomic.com.camfood.data.AuthManager;
 import afomic.com.camfood.model.User;
 import afomic.com.camfood.ui.base.BaseFragment;
 import afomic.com.camfood.ui.editProfile.EditProfileActivity;
+import afomic.com.camfood.viewHelper.fundWallet.FundWalletDialog;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -94,12 +95,6 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
     }
 
     @Override
-    public void showFundWalletDialog() {
-
-
-    }
-
-    @Override
     public void showProgressView() {
 
     }
@@ -109,8 +104,22 @@ public class ProfileFragment extends BaseFragment implements ProfileView {
 
     }
 
+    @Override
+    public void showFundWalletDialog() {
+        FundWalletDialog walletDialog = FundWalletDialog.newInstance(FundWalletDialog.TYPE_DEPOSIT_FUND);
+        walletDialog.show(getFragmentManager(), null);
+
+    }
+
+    @Override
+    public void showWithdrawalDialog() {
+        FundWalletDialog walletDialog = FundWalletDialog.newInstance(FundWalletDialog.TYPE_WITHDRAW_FUND);
+        walletDialog.show(getFragmentManager(), null);
+    }
+
+
     @OnClick(R.id.btn_fund_wallet)
     public void fundWallet() {
-
+        mProfilePresenter.handleFundWallet();
     }
 }

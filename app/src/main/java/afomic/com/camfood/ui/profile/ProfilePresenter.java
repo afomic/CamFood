@@ -7,6 +7,7 @@ import afomic.com.camfood.ui.base.BasePresenter;
 
 public class ProfilePresenter extends BasePresenter<ProfileView> {
     private AuthManager mAuthManager;
+    private User currentUser;
 
     public ProfilePresenter(ProfileView view, AuthManager authManager) {
         super(view);
@@ -21,6 +22,7 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
             public void onSuccess(User user) {
                 view.hideProgressView();
                 view.showProfile(user);
+                currentUser = user;
                 if (user.userType != Constants.RESTAURANT_ACCOUNT_TYPE) {
                     view.setUpCustomerProfile();
                 }
@@ -37,7 +39,25 @@ public class ProfilePresenter extends BasePresenter<ProfileView> {
     public void handleEditProfile() {
         view.showEditProfileView();
     }
-    public void handleFundWallet(){
 
+    public void handleFundWallet() {
+        view.showProgressView();
+        mAuthManager.getCurrentUser(new AuthManager.AuthCallback() {
+            @Override
+            public void onSuccess(User user) {
+                view.hideProgressView();
+                if (user.userType == Constants.RESTAURANT_ACCOUNT_TYPE) {
+                    view.showWithdrawalDialog();
+                } else {
+                    view.showFundWalletDialog();
+                }
+            }
+
+            @Override
+            public void onError(String reason) {
+                view.hideProgressView();
+                view.showMessage(reason);
+            }
+        });
     }
 }

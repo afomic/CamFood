@@ -43,6 +43,12 @@
     <string name="food_sucessfully_added">Food Successfully added</string>
     <string name="account_balance_label">Account Balance</string>
     <string name="fund_wallet_button_title">Fund Wallet</string>
+    <string name="amount">Amount</string>
+    <string name="fund_wallet">Fund wallet</string>
+    <string name="withdraw_fund">WITHDRAW FUND</string>
+    <string name="fund_wallet_sucess">Account Successfully Funded</string>
+    <string name="insufficient_balance">Insufficient Balance</string>
+    <string name="withdraw_success">Successfully Withdrawal</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

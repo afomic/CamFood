@@ -1,8 +1,9 @@
 package afomic.com.camfood.ui.home;
 
 import afomic.com.camfood.ui.base.BaseView;
+import afomic.com.camfood.ui.base.LoadingBaseView;
 
-public interface HomeView extends BaseView {
+public interface HomeView extends LoadingBaseView {
     void showFoodView();
 
     void showOrderView();

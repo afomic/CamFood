@@ -12,4 +12,6 @@ public interface ProfileView extends LoadingBaseView {
     void setUpCustomerProfile();
 
     void showFundWalletDialog();
+
+    void showWithdrawalDialog();
 }
