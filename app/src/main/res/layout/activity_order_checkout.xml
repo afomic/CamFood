@@ -47,21 +47,19 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_weight="1"
                     android:text="Total Amount"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                    android:fontFamily="@font/lato_bold"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_total_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
+                    android:layout_marginRight="20dp"
                     android:text="#20000"
-                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Body2"
-                    android:textSize="18sp" />
+                    android:fontFamily="@font/lato_bold"/>
             </LinearLayout>
 
             <Spinner
