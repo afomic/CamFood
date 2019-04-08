@@ -3,6 +3,8 @@ package afomic.com.camfood.ui.editProfile;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,6 +27,8 @@ public class EditProfileActivity extends BaseActivity implements EditProfileView
     @BindView(R.id.edt_address)
     EditText addressEditText;
 
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
     private EditProfilePresenter editProfilePresenter;
 
     @Override
@@ -38,7 +42,9 @@ public class EditProfileActivity extends BaseActivity implements EditProfileView
 
     @Override
     public void setup() {
-
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setTitle("Edit Profile");
     }
 
     @Override
@@ -61,6 +67,14 @@ public class EditProfileActivity extends BaseActivity implements EditProfileView
     @Override
     public void hideProgressView() {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home){
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @OnClick(R.id.btn_update_profile)

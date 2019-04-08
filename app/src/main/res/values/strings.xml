@@ -50,6 +50,8 @@
     <string name="insufficient_balance">Insufficient Balance</string>
     <string name="withdraw_success">Successfully Withdrawal</string>
     <string name="camfood_channel_description">This shows camfood notification</string>
+    <string name="profile">Profile</string>
+    <string name="order">Order</string>
     <string-array name="pick_up_locations">
         <item>Please select a pick up Location</item>
         <item>Awolowo Hall Common Room</item>

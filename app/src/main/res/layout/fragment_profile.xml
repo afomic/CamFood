@@ -172,7 +172,7 @@
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:background="@color/colorAccent"
         android:text="EDIT PROFILE"
         android:textColor="@color/colorWhite" />

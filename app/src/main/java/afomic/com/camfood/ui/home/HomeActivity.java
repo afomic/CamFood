@@ -81,12 +81,15 @@ public class HomeActivity extends BaseActivity implements HomeView, FundWalletDi
     public void showOrderView() {
         FoodOrderFragment fragment = new FoodOrderFragment();
         displayFragment(fragment);
+        setTitle(R.string.order);
+
     }
 
     @Override
     public void showProfileView() {
         ProfileFragment fragment = new ProfileFragment();
         displayFragment(fragment);
+        setTitle(R.string.profile);
     }
 
     @Override

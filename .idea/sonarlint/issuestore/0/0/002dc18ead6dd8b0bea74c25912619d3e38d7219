@@ -1,0 +1,5 @@
+
+Vsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(™é÷ªùÿÿÿÿ
+osquid:UselessImportCheck	"FRemove this unused import 'afomic.com.camfood.ui.payment.PaymentView'.(¸Æäšùÿÿÿÿ

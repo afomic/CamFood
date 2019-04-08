@@ -1,0 +1,27 @@
+
+t
+Dapp/src/main/java/afomic/com/camfood/ui/profile/ProfileFragment.java,8/0/80613973c574bb964beda4fc4657c92fe5459353
+n
+>app/src/main/java/afomic/com/camfood/ui/home/HomeActivity.java,e/b/eb3254baafc7c518ad9b55d32d5f00a87ffeab37
+x
+Happ/src/main/java/afomic/com/camfood/ui/foodOrder/FoodOrderFragment.java,f/7/f75be46119b20605b602cde97c33b551a45d068b
+y
+Iapp/src/main/java/afomic/com/camfood/ui/foodOrder/FoodOrderPresenter.java,2/3/23d1f34b342ffbbc010da9d24ecf85e351cbadad
+j
+:app/src/main/java/afomic/com/camfood/data/AuthManager.java,8/7/879c897e4a97bd1ce51c277a14d798a05e4bb6b4
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+^
+.app/src/main/java/afomic/com/camfood/Test.java,0/0/002dc18ead6dd8b0bea74c25912619d3e38d7219
+a
+1app/src/main/java/afomic/com/camfood/CamFood.java,0/0/005bd194ee8cef58ca2c744a09b243eb749c539b
+f
+6app/src/main/java/afomic/com/camfood/MainActivity.java,8/4/84521544534fb0552e827a5913008223f77ec406
+c
+3app/src/main/java/afomic/com/camfood/Constants.java,d/c/dc44f3ae38c53ef8cb1771ae1b1a44ac214563c5
+€
+Papp/src/main/java/afomic/com/camfood/viewHelper/fundWallet/FundWalletDialog.java,4/4/4400b2e29793d55c896e00b1eed442f014809404
+}
+Mapp/src/main/java/afomic/com/camfood/viewHelper/CreateFoodToppingAdapter.java,2/5/25875f02ef824a4d51ce8b9f21e7a6f5b60c4b81
+„
+Tapp/src/main/java/afomic/com/camfood/viewHelper/createFood/UpdateFoodItemDialog.java,6/d/6df5b91644d3f5b1f1897670c2edeaf76fb375ea
