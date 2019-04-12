@@ -63,10 +63,9 @@ Pre-requisites
 
 Screenshots
 -------------
-#Sign up
+
 <img src="images/signUp.png" height="400" alt="Screenshot"/> 
 
-#Create Order
 <img src="images/createOrder.png" height="400" alt="Screenshot"/> 
 
 Getting Started
