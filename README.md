@@ -64,9 +64,15 @@ Pre-requisites
 Screenshots
 -------------
 
-<img src="images/signUp.png" height="400" alt="Screenshot"/> 
+<p float="left">
+ <img src="images/signUp.png" height="400" alt="Screenshot"/> 
+  <img src="images/foodlist.png" height="400" alt="Screenshot"/> 
+  <img src="images/createOrder.png" height="400" alt="Screenshot"/> 
+</p>
+<p float="left">
+ <img src="images/checkout.png" height="400" alt="Screenshot"/> 
+</p>
 
-<img src="images/createOrder.png" height="400" alt="Screenshot"/> 
 
 Getting Started
 ---------------
